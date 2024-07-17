@@ -31,14 +31,17 @@ public class RecipePage extends BasePage {
     private WebElement inputImage;
     @FindBy(css = "[class] [tabindex='0']:nth-child(8)")
     private WebElement clickAddRecipe;
-    @FindBy (css="div#mui-component-select-category")
+    @FindBy(css = "#mui-component-select-category")
     private WebElement clickCategoriesDropdownList;
-    @FindBy(css = "div#mui-component-select-cuisine")
-    private WebElement clickCuisineDropdownList;
-    @FindBy(css="ul#\\:rb\\: > li:nth-of-type(2)")
+
+    @FindBy(css = ".MuiMenuItem-root:nth-child(3)")
     private WebElement clickCategory;
-    @FindBy(css = "ul#\\:rd\\: > li:nth-of-type(16)")
+    @FindBy(css = "#mui-component-select-cuisine")
+    private WebElement clickCuisineDropdownList;
+
+    @FindBy(css = "ul#\\:rl\\: > li:nth-of-type(102)")
     private WebElement clickCuisine;
+
     public void inputTitle(String title) {
         inputTitle.sendKeys(title);
     }
@@ -55,12 +58,33 @@ public class RecipePage extends BasePage {
         inputFirstStep.sendKeys(step);
     }
 
+    public void setClickCategoriesDropdownList() {
+        clickCategoriesDropdownList.click();
+    }
+
+    public void setClickCategory() {
+        clickCategoriesDropdownList.click();
+    }
+
+    public void setClickCuisineDropdownList() {
+        clickCuisineDropdownList.click();
+    }
+
+    public void setClickCuisine() {
+        clickCuisine.click();
+    }
+
     public void inputImageUrl(String url) {
         inputImage.sendKeys(url);
     }
 
-    public void selectRandomCategory() {
-       // clickCategoriesDropdownList.click();
+    public void clickAddRecipeButton() {
+        clickAddRecipe.click();
+    }
+
+
+//    public void selectRandomCategory() {
+//        clickCategoriesDropdownList.click();
 //        List<WebElement> categoryOptions = driver.findElements(By.cssSelector("ul[role='listbox'] li"));
 //        selectRandomOption(categoryOptions);
 //
@@ -72,20 +96,12 @@ public class RecipePage extends BasePage {
 //        Random rand = new Random();
 //        int randomIndex = rand.nextInt(options.size() - startIndex) + startIndex;
 //        options.get(randomIndex).click();
-     clickCategoriesDropdownList.click();
-        for (int i = 0; i <4 ; i++) {
 
-        }
-     clickCategory.click();
 
-    }
-
-    public void selectRandomCuisine() throws InterruptedException {
-clickCuisineDropdownList.click();
-
-clickCuisine.click();
-
-    }
+//    }
+//
+//    public void selectRandomCuisine() throws InterruptedException {
+//
 
 //    private void selectRandomOption(List<WebElement> options) {
 //        Random random = new Random();
@@ -127,8 +143,4 @@ clickCuisine.click();
 //        By optionsLocator = By.cssSelector("ul#\\:rd\\: > li");
 //        selectRandomDropdownOption(dropdownLocator, optionsLocator);
 //    }
-
-    public void clickAddRecipeButton() {
-        clickAddRecipe.click();
-    }
 }

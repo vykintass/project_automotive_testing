@@ -12,16 +12,14 @@ public class HomeTest extends BaseTest {
         String lastName = UserData.getLastName();
         String email = UserData.getEmail();
         String password = UserData.getPassword();
-        HomePage homePage = new HomePage(driver);
         homePage.clickSignUpHomePage();
-        RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
         registrationPage.inputEmail(email);
         registrationPage.inputPassword(password);
         registrationPage.inputRepeatPassword(password);
         registrationPage.clickSignUpButton();
-        Assertions.assertTrue(homePage.checkWelcomeMessage(), "registration was not succesful");
+        Assertions.assertTrue(homePage.checkWelcomeMessage(), "registration was not successful");
     }
 
 
@@ -32,11 +30,7 @@ public class HomeTest extends BaseTest {
         String lastName = UserData.getLastName();
         String email = UserData.getEmail();
         String password = UserData.getPassword();
-
-        HomePage homePage = new HomePage(driver);
         homePage.clickLoginHomePage();
-        LoginPage loginPage = new LoginPage(driver);
-        RegistrationPage registrationPage = new RegistrationPage(driver);
         loginPage.clickSignUp();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -44,7 +38,7 @@ public class HomeTest extends BaseTest {
         registrationPage.inputPassword(password);
         registrationPage.inputRepeatPassword(password);
         registrationPage.clickSignUpButton();
-        Assertions.assertTrue(homePage.checkWelcomeMessage(), "registration was not succesful");
+        Assertions.assertTrue(homePage.checkWelcomeMessage(), "registration was not successful");
     }
 
     @Test
@@ -54,7 +48,6 @@ public class HomeTest extends BaseTest {
         String lastName = UserData.getLastName();
         String email = UserData.getEmail();
         String password = UserData.getPassword();
-
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         homePage.clickSignUpHomePage();
@@ -83,21 +76,18 @@ public class HomeTest extends BaseTest {
         String email = UserData.getEmail();
         String password = UserData.getPassword();
 
-        HomePage homePage = new HomePage(driver);
         homePage.clickSignUpHomePage();
-        RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
         registrationPage.inputEmail(email);
         registrationPage.inputPassword(password);
         registrationPage.inputRepeatPassword(password);
         registrationPage.clickSignUpButton();
-        LoginPage loginPage = new LoginPage(driver);
         homePage.clickLogin();
         loginPage.inputEmail(email);
         loginPage.inputPassword(password);
         loginPage.clickLogIn();
-        AccountPage accountPage = new AccountPage(driver);
+
         synchronized (monitor) {
             try {
                 monitor.wait(100);
@@ -116,13 +106,14 @@ public class HomeTest extends BaseTest {
 
         //User registration
         UserData.generateUserData();
+
         String firstName = UserData.getFirstName();
         String lastName = UserData.getLastName();
         String email = UserData.getEmail();
         String password = UserData.getPassword();
-        HomePage homePage = new HomePage(driver);
+
         homePage.clickSignUpHomePage();
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
         registrationPage.inputEmail(email);
@@ -130,7 +121,7 @@ public class HomeTest extends BaseTest {
         registrationPage.inputRepeatPassword(password);
         registrationPage.clickSignUpButton();
         //User login
-        LoginPage loginPage = new LoginPage(driver);
+
         homePage.clickLogin();
         loginPage.inputEmail(email);
         loginPage.inputPassword(password);
@@ -144,10 +135,9 @@ public class HomeTest extends BaseTest {
                 e.printStackTrace();
             }
         }
-        AccountPage accountPage = new AccountPage(driver);
         accountPage.clickProfile();
-        ProfilePage profilePage = new ProfilePage(driver);
         profilePage.clickAddRecipe();
+
         // Fill the recipe form
         synchronized (monitor) {
             try {
@@ -157,68 +147,34 @@ public class HomeTest extends BaseTest {
                 e.printStackTrace();
             }
         }
-        RecipePage recipePage = PageFactory.initElements(driver, RecipePage.class);
 
-        //RecipePage recipePage = new RecipePage(driver);
+//        RecipePage recipePage = PageFactory.initElements(driver, RecipePage.class);
+
         RecipeData.generateRecipeData();
-        synchronized (monitor) {
-            try {
-                monitor.wait(100);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                e.printStackTrace();
-            }
-        }
+
         recipePage.inputTitle(RecipeData.getTitle());
-        synchronized (monitor) {
-            try {
-                monitor.wait(100);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                e.printStackTrace();
-            }
-        }
+
         recipePage.inputAmount(RecipeData.getAmount());
-        synchronized (monitor) {
-            try {
-                monitor.wait(100);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                e.printStackTrace();
-            }
-        }
+
         recipePage.inputIngredient(RecipeData.getIngredient());
-        synchronized (monitor) {
-            try {
-                monitor.wait(1000);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                e.printStackTrace();
-            }
-        }
+
         recipePage.inputStep(RecipeData.getStep());
-        synchronized (monitor) {
-            try {
-                monitor.wait(100);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                e.printStackTrace();
-            }
-        }
+
+        recipePage.setClickCategoriesDropdownList();
+
+        recipePage.setClickCategory();
+
+        recipePage.setClickCuisineDropdownList();
+
+        recipePage.setClickCuisine();
+
         recipePage.inputImageUrl(RecipeData.getUrl());
-        synchronized (monitor) {
-            try {
-                monitor.wait(100);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                e.printStackTrace();
-            }
-        }
+
 //Select from dropwdowns
 
 
-        recipePage.selectRandomCategory();
-        recipePage.selectRandomCuisine();
+        //recipePage.selectRandomCategory();
+        //recipePage.selectRandomCuisine();
 
         recipePage.clickAddRecipeButton();
     }
