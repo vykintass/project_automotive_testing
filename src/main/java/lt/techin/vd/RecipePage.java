@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -39,7 +40,7 @@ public class RecipePage extends BasePage {
     @FindBy(css = "#mui-component-select-cuisine")
     private WebElement clickCuisineDropdownList;
 
-    @FindBy(css = "ul#\\:rl\\: > li:nth-of-type(102)")
+    @FindBy(css = ".MuiButtonBase-root:nth-child(16)")
     private WebElement clickCuisine;
 
     public void inputTitle(String title) {
@@ -63,11 +64,13 @@ public class RecipePage extends BasePage {
     }
 
     public void setClickCategory() {
-        clickCategoriesDropdownList.click();
+        ;
+        clickCategory.click();
     }
 
     public void setClickCuisineDropdownList() {
         clickCuisineDropdownList.click();
+
     }
 
     public void setClickCuisine() {
