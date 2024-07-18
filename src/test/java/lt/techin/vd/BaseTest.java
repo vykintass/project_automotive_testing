@@ -35,6 +35,7 @@ public class BaseTest {
         recipePage = new RecipePage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("http://localhost:5173/");
+
         UserData.generateUserData();
         firstName = UserData.getFirstName();
         lastName = UserData.getLastName();

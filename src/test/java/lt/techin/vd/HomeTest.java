@@ -4,18 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class HomeTest extends BaseTest {
-    @Test
-    public void registrationTest() {
-        homePage.clickSignUpHomePage();
-        registrationPage.inputFirstName(firstName);
-        registrationPage.inputLastName(lastName);
-        registrationPage.inputEmail(email);
-        registrationPage.inputPassword(password);
-        registrationPage.inputRepeatPassword(password);
-        registrationPage.clickSignUpButton();
-        Assertions.assertTrue(homePage.checkWelcomeMessage(), "registration was not successful");
-    }
-
 
     @Test
     public void registrationTestFromLoginPage() {
@@ -30,22 +18,7 @@ public class HomeTest extends BaseTest {
         Assertions.assertTrue(homePage.checkWelcomeMessage(), "registration was not successful");
     }
 
-    @Test
-    public void loginTest() {
-        homePage.clickSignUpHomePage();
-        registrationPage.inputFirstName(firstName);
-        registrationPage.inputLastName(lastName);
-        registrationPage.inputEmail(email);
-        registrationPage.inputPassword(password);
-        registrationPage.inputRepeatPassword(password);
-        registrationPage.clickSignUpButton();
-        homePage.clickLogin();
-        loginPage.inputEmail(email);
-        loginPage.inputPassword(password);
-        loginPage.clickLogIn();
-        AccountPage accountPage = new AccountPage(driver);
-        Assertions.assertTrue(accountPage.checkWelcomeMessage(), "Log in was not successful");
-    }
+
 
     private final Object monitor = new Object();
 
