@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Random;
 
 public class RecipePage extends BasePage {
-    private WebDriver driver;
 
     public RecipePage(WebDriver driver) {
         super(driver);

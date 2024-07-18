@@ -5,22 +5,24 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
 public class BaseTest {
+    protected String firstName;
+    protected String lastName;
+    protected String email;
+    protected String password;
+    protected WebDriver driver;
+    protected HomePage homePage;
+    protected RegistrationPage registrationPage;
 
-    WebDriver driver;
-    HomePage homePage;
-    RegistrationPage registrationPage;
+    protected LoginPage loginPage;
+    protected AccountPage accountPage;
 
-    LoginPage loginPage;
-    AccountPage accountPage;
+    protected ProfilePage profilePage;
 
-    ProfilePage profilePage;
-
-    RecipePage recipePage;
+    protected RecipePage recipePage;
 
     @BeforeEach
     void setup(){
@@ -33,6 +35,12 @@ public class BaseTest {
         recipePage = new RecipePage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("http://localhost:5173/");
+        UserData.generateUserData();
+        firstName = UserData.getFirstName();
+        lastName = UserData.getLastName();
+        email = UserData.getEmail();
+        password = UserData.getPassword();
+
 
     }
     @AfterEach

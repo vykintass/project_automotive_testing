@@ -2,16 +2,10 @@ package lt.techin.vd;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.support.PageFactory;
 
 public class HomeTest extends BaseTest {
     @Test
     public void registrationTest() {
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -25,11 +19,6 @@ public class HomeTest extends BaseTest {
 
     @Test
     public void registrationTestFromLoginPage() {
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
         homePage.clickLoginHomePage();
         loginPage.clickSignUp();
         registrationPage.inputFirstName(firstName);
@@ -43,15 +32,7 @@ public class HomeTest extends BaseTest {
 
     @Test
     public void loginTest() {
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
         homePage.clickSignUpHomePage();
-        RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
         registrationPage.inputEmail(email);
@@ -70,12 +51,6 @@ public class HomeTest extends BaseTest {
 
     @Test
     public void logoutTest() throws InterruptedException {
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
-
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -103,15 +78,6 @@ public class HomeTest extends BaseTest {
 
     @Test
     public void addOneNewRecipeTest() throws InterruptedException {
-
-        //User registration
-        UserData.generateUserData();
-
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
-
         homePage.clickSignUpHomePage();
 
         registrationPage.inputFirstName(firstName);
@@ -148,8 +114,6 @@ public class HomeTest extends BaseTest {
             }
         }
 
-//        RecipePage recipePage = PageFactory.initElements(driver, RecipePage.class);
-
         RecipeData.generateRecipeData();
 
         recipePage.inputTitle(RecipeData.getTitle());
@@ -169,12 +133,6 @@ public class HomeTest extends BaseTest {
         recipePage.setClickCuisine();
 
         recipePage.inputImageUrl(RecipeData.getUrl());
-
-//Select from dropwdowns
-
-
-        //recipePage.selectRandomCategory();
-        //recipePage.selectRandomCuisine();
 
         recipePage.clickAddRecipeButton();
     }
