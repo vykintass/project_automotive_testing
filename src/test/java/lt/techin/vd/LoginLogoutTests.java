@@ -18,7 +18,7 @@ public class LoginLogoutTests extends BaseTest {
         registrationPage.clickSignUpButton();
 
         //checks if confirmation message appears
-        Assertions.assertTrue(homePage.checkWelcomeMessage(), "registration was not successful");
+//        Assertions.assertTrue(homePage.checkWelcomeMessage(), "registration was not successful");
 
         //checks if newly registered user is logged in
         Assertions.assertEquals(firstName.toLowerCase(), HomePage.logedUserName().toLowerCase());

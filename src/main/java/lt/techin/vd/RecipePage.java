@@ -1,17 +1,10 @@
 package lt.techin.vd;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-import java.util.List;
-import java.util.Random;
+import java.util.NoSuchElementException;
 
 public class RecipePage extends BasePage {
 
@@ -36,28 +29,90 @@ public class RecipePage extends BasePage {
 
     @FindBy(css = ".MuiMenuItem-root:nth-child(3)")
     private WebElement clickCategory;
+    @FindBy(css = ".MuiMenuItem-root:nth-child(4)")
+    private WebElement clickNewCategory;
     @FindBy(css = "#mui-component-select-cuisine")
     private WebElement clickCuisineDropdownList;
 
     @FindBy(css = ".MuiButtonBase-root:nth-child(16)")
     private WebElement clickCuisine;
+    @FindBy(css = ".MuiButtonBase-root:nth-child(17)")
+    private WebElement clickNewCuisine;
+    @FindBy(css = ".MuiBox-root.css-164r41r > button:nth-of-type(1)")
+    private WebElement clickAddIngridient;
+    @FindBy(css = ".MuiBox-root.css-164r41r > button:nth-of-type(2)")
+    private WebElement clickAddStep;
+    @FindBy(css= "div:nth-of-type(3) > .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.css-78trlr-MuiButtonBase-root-MuiIconButton-root")
+    private WebElement deleteSecondIngridient;
+    @FindBy(css = ".MuiBox-root:nth-child(5) path")
+    private WebElement deleteSecondStep;
+    @FindBy(css="input[name='ingredients.1.amount']")
+    private WebElement inputSecondAmount;
+    @FindBy(css="input[name='ingredients.1.ingredient']")
+    private WebElement inputSecondIngredient;
+    @FindBy(css = "input[name='steps.1']")
+    private WebElement inputSecondStep;
+    @FindBy(css = ".Mui-error.MuiFormHelperText-contained.MuiFormHelperText-root.MuiFormHelperText-sizeMedium.css-1wc848c-MuiFormHelperText-root")
+    private WebElement getCategoryErrorMessage;
+    @FindBy(css = "p#title-helper-text")
+    private WebElement getTitleErrorMessage;
+    @FindBy(css = "p#ingredients-amount-0-helper-text")
+    private WebElement getAmountErrorMessage;
+    @FindBy(css = "p#ingredients-name-0-helper-text")
+    private WebElement getIngredientErrorMessage;
+    @FindBy(css = "")
+    private WebElement getStepsErrorMessage;
+    @FindBy(css = "[class] .css-q8hpuo-MuiFormControl-root:nth-of-type(2) p")
+    private WebElement getCuisineErrorMessage;
+    @FindBy(css = "p#image-helper-text")
+    private WebElement getUrlErrorMessage;
+    @FindBy(css = "[class] [tabindex='0']:nth-child(8)")
+    private WebElement clickUpdateRecipe;
+    @FindBy(css = ".card-title.truncate")
+    private WebElement getUpdatedCardTitle;
+    @FindBy(css = "div#mui-component-select-category")
+    private WebElement clickCategoryDropDownEdit;
+    @FindBy(css = "div#mui-component-select-cuisine")
+    private WebElement clickCuisineDropDownEdit;
+    @FindBy(css = "p")
+    private WebElement getUpdatedCardCategory;
+    @FindBy(css = ".card-body .card-title:nth-of-type(2)")
+    private WebElement getUpdatedCardCuisine;
+    @FindBy(css = ".btn.btn-error.btn-outline")
+    private  WebElement clickDeleteRecipe;
+    @FindBy(css = "[class='mt-4 flex justify-center space-x-2'] .btn-error")
+    private WebElement clickConfirmDelete;
 
     public void inputTitle(String title) {
         inputTitle.sendKeys(title);
     }
-
+    public void deleteTitle(){
+        inputTitle.clear();
+    }
+    public String getTitle(){
+       return inputTitle.getText();
+    }
+    public void clickUpdateRecipe(){
+        clickUpdateRecipe.click();
+    }
     public void inputAmount(String amount) {
         inputFirstAmount.sendKeys(amount);
     }
-
+    public void deleteAmount(){
+        inputFirstAmount.clear();
+    }
     public void inputIngredient(String ingredient) {
         inputFirstIngridient.sendKeys(ingredient);
     }
-
+    public void deleteIngredient(){
+        inputFirstIngridient.clear();
+    }
     public void inputStep(String step) {
         inputFirstStep.sendKeys(step);
     }
-
+    public void deleteStep(){
+        inputFirstStep.clear();
+    }
     public void setClickCategoriesDropdownList() {
         clickCategoriesDropdownList.click();
     }
@@ -65,12 +120,22 @@ public class RecipePage extends BasePage {
     public void setClickCategory() {
         clickCategory.click();
     }
-
+    public void clickCategoryDropDownEdit(){
+        clickCategoryDropDownEdit.click();
+    }
+    public void clickCuisineDropDownEdit(){
+        clickCuisineDropDownEdit.click();
+    }
+public void clickNewCategory(){
+        clickNewCategory.click();
+}
     public void setClickCuisineDropdownList() {
-        clickCuisineDropdownList.click();
+        clickCuisineDropDownEdit.click();
 
     }
-
+    public void clickNewCuisine(){
+        clickNewCuisine.click();
+    }
     public void setClickCuisine() {
         clickCuisine.click();
     }
@@ -78,70 +143,83 @@ public class RecipePage extends BasePage {
     public void inputImageUrl(String url) {
         inputImage.sendKeys(url);
     }
+    public void deleteUrl(){
+        inputImage.clear();
+    }
+    public void clickAddSecondIngredient(){
+        clickAddIngridient.click();
+    }
+    public void inputSecondIngredient( String ingredient){
+        inputSecondIngredient.sendKeys(ingredient);
 
+    }
+    public void inputSecondAmount(String amount){
+        inputSecondAmount.sendKeys(amount);
+    }
+    public boolean isSecondIngredientPresent(WebElement element) {
+        try {
+            return element.isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+    public void clickAddSecondStep(){
+        clickAddStep.click();
+    }
+    public void inputSecondStep(String step){
+        inputSecondStep.sendKeys(step);
+    }
+
+    public void deleteSecondIngredient(){
+        deleteSecondIngridient.click();
+    }
+    public void deleteSecondStep(){
+        deleteSecondStep.click();
+    }
     public void clickAddRecipeButton() {
         clickAddRecipe.click();
     }
+    public String getCategeryErrorMessage(){
+        return getCategoryErrorMessage.getText();
+    }
+    public String getTitleErrorMessage(){
+        return getTitleErrorMessage.getText();
+    }
+    public String getAmountErrorMessage(){
+        return getAmountErrorMessage.getText();
+    }
+    public String getIngredientErrorMessage(){
+        return getIngredientErrorMessage.getText();
+    }
+    public String getCuisineErrorMessage(){
+        return getCuisineErrorMessage.getText();
+    }
+    public String getStepsErrorMessage(){
+        return getStepsErrorMessage.getText();
+    }
+    public String getUrlErrorMessage(){
+        return getUrlErrorMessage.getText();
+    }
+    public String getUpdatedCardTitle(){
+        String fullText = getUpdatedCardTitle.getText();
+        String actualTitle = fullText.replace("Name: ", "").trim();
+        return actualTitle;
+    }
+    public String getUpdatedCardCusine(){
+        String fullText = getUpdatedCardCuisine.getText();
+        String actualCuisine = fullText.replace("Cusine: ", "").trim();
+        return actualCuisine;
+    }
+    public String getUpdatedCardCategory(){
+        String fullText = getUpdatedCardCategory.getText();
+        String actualCategory = fullText.replace("Category: ", "").trim();
+        return actualCategory;
+    }
+    public void clickDeleteRecipe(){
+        clickDeleteRecipe.click();
+    }
+    public void clickConfirmDelete(){
+        clickConfirmDelete.click();
+    }
 
-
-//    public void selectRandomCategory() {
-//        clickCategoriesDropdownList.click();
-//        List<WebElement> categoryOptions = driver.findElements(By.cssSelector("ul[role='listbox'] li"));
-//        selectRandomOption(categoryOptions);
-//
-//        WebElement dropdown = driver.findElement(By.cssSelector("div#mui-component-select-category"));
-//        dropdown.click();
-//        Select select = new Select(dropdown);
-//        List<WebElement> options = select.getOptions();
-//        int startIndex = 1; // Assuming the first option is a placeholder
-//        Random rand = new Random();
-//        int randomIndex = rand.nextInt(options.size() - startIndex) + startIndex;
-//        options.get(randomIndex).click();
-
-
-//    }
-//
-//    public void selectRandomCuisine() throws InterruptedException {
-//
-
-//    private void selectRandomOption(List<WebElement> options) {
-//        Random random = new Random();
-//        int randomIndex = random.nextInt(options.size());
-//        options.get(randomIndex).click();
-//    }
-//    private void selectRandomDropdownOption(By dropdownLocator, By optionsLocator) {
-//        // Click the dropdown to reveal options
-//        WebElement dropdownElement = driver.findElement(dropdownLocator);
-//        dropdownElement.click();
-//
-//        // Wait for the options to be visible
-//        try {
-//            Thread.sleep(500); // This is a simple wait, replace with WebDriverWait for better handling
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        // Get all options
-//        List<WebElement> options = driver.findElements(optionsLocator);
-//        if (options.size() > 0) {
-//            // Select a random option
-//            Random rand = new Random();
-//            int randomIndex = rand.nextInt(options.size());
-//            options.get(randomIndex).click();
-//        }
-//    }
-//
-//    public void selectRandomCategory() {
-//        // Locate the dropdown and its options
-//        By dropdownLocator = By.cssSelector("div#mui-component-select-category");
-//        By optionsLocator = By.cssSelector("ul#\\:rb\\: > li");
-//        selectRandomDropdownOption(dropdownLocator, optionsLocator);
-//    }
-//
-//    public void selectRandomCuisine() {
-//
-//        By dropdownLocator = By.cssSelector("div#mui-component-select-cuisine");
-//        By optionsLocator = By.cssSelector("ul#\\:rd\\: > li");
-//        selectRandomDropdownOption(dropdownLocator, optionsLocator);
-//    }
 }

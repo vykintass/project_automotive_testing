@@ -21,8 +21,9 @@ public class BaseTest {
     protected AccountPage accountPage;
 
     protected ProfilePage profilePage;
-
     protected RecipePage recipePage;
+    protected CategoryPage categoryPage;
+    protected CuisinesPage cuisinesPage;
 
     @BeforeEach
     void setup(){
@@ -33,6 +34,8 @@ public class BaseTest {
         accountPage = new AccountPage(driver);
         profilePage = new ProfilePage(driver);
         recipePage = new RecipePage(driver);
+        categoryPage = new CategoryPage(driver);
+        cuisinesPage = new CuisinesPage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         driver.get("http://localhost:5173/");
