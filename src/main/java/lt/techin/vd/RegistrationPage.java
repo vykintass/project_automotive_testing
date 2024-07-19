@@ -25,6 +25,7 @@ public class RegistrationPage extends BasePage{
     private WebElement inputRepeatPassword;
     @FindBy( css= "main [tabindex]")
     private WebElement clickSignUpButton;
+
     public void inputFirstName(String firstname ){
         inputFirstName.sendKeys(firstname);
     }
@@ -40,7 +41,7 @@ public class RegistrationPage extends BasePage{
     public void inputRepeatPassword(String password){
         inputRepeatPassword.sendKeys(password);
     }
-        public void clickSignUpButton(){
+    public void clickSignUpButton(){
     clickSignUpButton.click();
     }
 

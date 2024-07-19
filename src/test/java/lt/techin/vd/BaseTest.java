@@ -34,6 +34,7 @@ public class BaseTest {
         profilePage = new ProfilePage(driver);
         recipePage = new RecipePage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
         driver.get("http://localhost:5173/");
 
         UserData.generateUserData();
@@ -46,6 +47,6 @@ public class BaseTest {
     }
     @AfterEach
     void tearDown(){
-        //driver.quit();
+        driver.quit();
     }
 }

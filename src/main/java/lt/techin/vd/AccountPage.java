@@ -17,6 +17,7 @@ public class AccountPage extends BasePage{
     private WebElement clickProfile;
     @FindBy (css = "#root > div.flex.justify-around > a:nth-child(1)")
     private WebElement addCategorieButton;
+
     public boolean checkWelcomeMessage(){
         return checkWelcomeMessage.isDisplayed();
     }

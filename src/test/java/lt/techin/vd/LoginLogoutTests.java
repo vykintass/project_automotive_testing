@@ -236,15 +236,4 @@ public class LoginLogoutTests extends BaseTest {
         Assertions.assertEquals(loginPage.getEmptyEmailErrorMessage(), "Please enter your email");
     }
 
-
-
-
-
-
-
-
-
-
-
-
 }
