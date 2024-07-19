@@ -15,8 +15,8 @@ public class HomePage extends BasePage{
     private WebElement clickSignUpHomePage;
     @FindBy(id = "name")
     private WebElement inputName;
-    @FindBy (css = "div#root > .font-bold.text-3xl.underline")
-    private WebElement checkWelcomeMessage;
+//    @FindBy (css = ".font-bold.mb-10.mt-10.text-3xl.text-center.underline")
+//    private WebElement checkWelcomeMessage;
     @FindBy (css ="[href='\\/login']" )
     private WebElement clickLogin;
 
@@ -29,9 +29,9 @@ public class HomePage extends BasePage{
     public void clickSignUpHomePage(){
         clickSignUpHomePage.click();
     }
-    public boolean checkWelcomeMessage(){
-        return checkWelcomeMessage.isDisplayed();
-    }
+//    public boolean checkWelcomeMessage(){
+//        return checkWelcomeMessage.isDisplayed();
+//    }
     public void clickLogin(){
         clickLogin.click();
     }
