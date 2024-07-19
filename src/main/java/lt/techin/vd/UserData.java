@@ -9,9 +9,21 @@ package lt.techin.vd;
         private static String firstName;
         private static String lastName;
 
-        private static String[] firstNames = {"Al", "Apu","Bruce", "Bryce", "Bronny", "Cessar", "Kyle", "Demar", "Kylie", "Kyrie", "Magic", "Mose", "John", "Jane", "Alice", "Bob", "Mike", "James", "Alex", "Pete", "Xavier", "Paul", "Anthony", "Larry"};
+        private static String[] firstNames = {"Al", "Apu", "Bruce", "Bryce", "Bronny", "Cessar", "Kyle", "Demar", "Kylie", "Kyrie",
+                "Magic", "Mose", "John", "Jane", "Alice", "Bob", "Mike", "James", "Alex", "Pete",
+                "Xavier", "Paul", "Anthony", "Larry",
+                "Sarah", "Emily", "Jessica", "Matthew", "David", "Daniel", "Michael", "Christopher",
+                "Joshua", "Andrew", "Joseph", "Ethan", "Ryan", "Nicholas", "Benjamin", "Samuel",
+                "Tyler", "Alexander", "Jacob", "William", "Emma", "Olivia", "Sophia", "Isabella",
+                "Mia", "Charlotte", "Amelia", "Harper", "Evelyn", "Abigail", "Ella", "Avery"};
 
-        private static String[] lastNames = {"Doe", "Smith", "Johnson", "Williams","Harden", "Davis", "Castle", "Evans", "Rivers", "Sumner", "Wallace"};
+        private static String[] lastNames = {
+                "Doe", "Smith", "Johnson", "Williams", "Harden", "Davis", "Castle", "Evans", "Rivers", "Sumner",
+                "Wallace",
+                "Brown", "Taylor", "Anderson", "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson",
+                "Garcia", "Martinez", "Robinson", "Clark", "Rodriguez", "Lewis", "Lee", "Walker", "Hall",
+                "Allen", "Young", "King", "Wright", "Scott", "Green", "Baker", "Adams", "Nelson", "Carter",
+                "Mitchell", "Perez", "Roberts", "Turner", "Phillips", "Campbell", "Parker", "Edwards", "Collins"};
 
         public static String getRandomFirstName() {
             Random random = new Random();

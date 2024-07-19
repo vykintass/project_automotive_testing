@@ -15,8 +15,13 @@ public class HomePage extends BasePage{
     private WebElement clickSignUpHomePage;
     @FindBy(id = "name")
     private WebElement inputName;
+<<<<<<< HEAD
     @FindBy (css = ".MuiButtonBase-root:nth-child(5)")
     private WebElement checkWelcomeMessage;
+=======
+//    @FindBy (css = ".font-bold.mb-10.mt-10.text-3xl.text-center.underline")
+//    private WebElement checkWelcomeMessage;
+>>>>>>> vykintas
     @FindBy (css ="[href='\\/login']" )
     private WebElement clickLogin;
     @FindBy (css = "button#logout")
@@ -33,9 +38,9 @@ public class HomePage extends BasePage{
     public void clickSignUpHomePage(){
         clickSignUpHomePage.click();
     }
-    public boolean checkWelcomeMessage(){
-        return checkWelcomeMessage.isDisplayed();
-    }
+//    public boolean checkWelcomeMessage(){
+//        return checkWelcomeMessage.isDisplayed();
+//    }
     public void clickLogin(){
         clickLogin.click();
     }

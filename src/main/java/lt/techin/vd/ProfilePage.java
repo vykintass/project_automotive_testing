@@ -12,12 +12,25 @@ public class ProfilePage extends BasePage{
     private WebElement clickProfile;
     @FindBy (css = "a:nth-of-type(2) > button")
     private WebElement clickAddRecipe;
-
+    @FindBy(css = ".MuiButton-colorNeutral.MuiButton-root.MuiButton-sizeMd.MuiButton-variantOutlined.css-s62xdh-JoyButton-root")
+    private WebElement clickEditRecipe;
+    @FindBy(css= "div[role='status']")
+    private WebElement editConfirmation;
+    @FindBy(css = "p")
+    private WebElement getRecipesText;
     public void clickProfile(){
         clickProfile.click();
     }
     public void clickAddRecipe(){
         clickAddRecipe.click();
     }
-
+    public void clickEditRecipe(){
+        clickEditRecipe.click();
+    }
+    public boolean getEditConfirmationMessage(){
+       return editConfirmation.isDisplayed();
+    }
+    public String  getRecipesText(){
+        return   getRecipesText.getText();
+    }
 }

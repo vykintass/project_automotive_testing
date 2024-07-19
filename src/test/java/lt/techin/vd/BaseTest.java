@@ -22,8 +22,16 @@ public class BaseTest {
 
     protected ProfilePage profilePage;
 
+<<<<<<< HEAD
     protected RecipePage recipePage;
 
+=======
+    ProfilePage profilePage;
+
+    RecipePage recipePage;
+    CategoryPage categoryPage;
+    CuisinesPage cuisinesPage;
+>>>>>>> vykintas
     @BeforeEach
     void setup(){
         driver = new ChromeDriver();
@@ -33,6 +41,8 @@ public class BaseTest {
         accountPage = new AccountPage(driver);
         profilePage = new ProfilePage(driver);
         recipePage = new RecipePage(driver);
+        categoryPage = new CategoryPage(driver);
+        cuisinesPage = new CuisinesPage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("http://localhost:5173/");
 
@@ -46,6 +56,6 @@ public class BaseTest {
     }
     @AfterEach
     void tearDown(){
-        //driver.quit();
+        driver.quit();
     }
 }

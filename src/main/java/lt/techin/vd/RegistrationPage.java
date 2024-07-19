@@ -25,6 +25,16 @@ public class RegistrationPage extends BasePage{
     private WebElement inputRepeatPassword;
     @FindBy( css= "main [tabindex]")
     private WebElement clickSignUpButton;
+    @FindBy(id="name-helper-text")
+    private WebElement getFirstNameMessage;
+    @FindBy(id= "lastname-helper-text")
+    private WebElement getLastnameMessage;
+    @FindBy(id="email-helper-text")
+    private WebElement getEmailMessage;
+    @FindBy(id="password-helper-text")
+    private WebElement getPasswordMessage;
+    @FindBy(id="repeatPassword-helper-text")
+    private WebElement getRepeatPasswordMessage;
     public void inputFirstName(String firstname ){
         inputFirstName.sendKeys(firstname);
     }
@@ -43,6 +53,19 @@ public class RegistrationPage extends BasePage{
         public void clickSignUpButton(){
     clickSignUpButton.click();
     }
-
-
+    public String getfirstNameMessage(){
+      return getFirstNameMessage.getText();
+    }
+    public String getLastNameMessage(){
+        return getLastnameMessage.getText();
+    }
+    public String getEmailMessage(){
+        return getEmailMessage.getText();
+    }
+    public String getPasswordMessage(){
+        return getPasswordMessage.getText();
+    }
+    public String getRepeatPasswordMessage(){
+       return getRepeatPasswordMessage.getText();
+    }
 }
