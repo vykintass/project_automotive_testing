@@ -181,6 +181,63 @@ public class LoginLogoutTests extends BaseTest {
         Assertions.assertTrue(homePage.isLoginButtonDisplayed());
     }
 
+    @Test
+    public void invalidEmailAdminLogin(){
+        homePage.clickLogin();
+        loginPage.inputEmail("admin@gmail.com");
+        loginPage.inputPassword("123456");
+        loginPage.clickLogIn();
+
+        //checks if empty password field error message appears
+        Assertions.assertEquals(loginPage.getEmailErrorMessage(), "User with this email does not exists");
+    }
+
+    @Test
+    public void invalidPasswordAdminLogin(){
+        homePage.clickLogin();
+        loginPage.inputEmail("admin@mail.com");
+        loginPage.inputPassword("abcdefg");
+        loginPage.clickLogIn();
+
+        //checks if password field error message appears
+        Assertions.assertEquals(loginPage.getWrongPasswordErrorMessage(), "email or password does not match");
+    }
+
+    @Test
+    public void invalidEmailAndInvalidPasswordAdminLogin(){
+        homePage.clickLogin();
+        loginPage.inputEmail("admin@gmail.com");
+        loginPage.inputPassword("abcdefg");
+        loginPage.clickLogIn();
+
+        //checks if email field error message appears
+        Assertions.assertEquals(loginPage.getEmailErrorMessage(), "User with this email does not exists");
+    }
+
+    @Test
+    public void adminInputsOnlyValidEmail(){
+        homePage.clickLogin();
+        loginPage.inputEmail("admin@mail.com");
+        loginPage.inputPassword("");
+        loginPage.clickLogIn();
+
+        //checks if empty password field error message appears
+        Assertions.assertEquals(loginPage.getEmptyPassErrorMessage(), "Please enter your password");
+    }
+
+    @Test
+    public void adminInputsOnlyValidPassword(){
+        homePage.clickLogin();
+        loginPage.inputEmail("");
+        loginPage.inputPassword("123456");
+        loginPage.clickLogIn();
+
+        //checks if empty email field error message appears
+        Assertions.assertEquals(loginPage.getEmptyEmailErrorMessage(), "Please enter your email");
+    }
+
+
+
 
 
 

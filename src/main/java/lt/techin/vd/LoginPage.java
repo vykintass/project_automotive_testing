@@ -29,6 +29,9 @@ public class LoginPage extends BasePage {
     private WebElement inputPassword;
     @FindBy(css="main [tabindex]")
     private WebElement clickLogIn;
+
+    @FindBy (css = ".MuiBox-root.css-164r41r > .MuiTypography-body1.MuiTypography-root.css-1nkhxq8-MuiTypography-root")
+    private WebElement passwordDoNotMatchMessage;
     public void clickSignUp(){
         clickSignUp.click();
     }
@@ -54,6 +57,12 @@ public class LoginPage extends BasePage {
     public String getEmptyPassErrorMessage(){
         return emptyPasswordFieldErrorMessage.getText();
     }
+
+    public String getWrongPasswordErrorMessage(){
+        return passwordDoNotMatchMessage.getText().replace(" \uD83D\uDE2D", "");
+    }
+
+
 
 
 }
