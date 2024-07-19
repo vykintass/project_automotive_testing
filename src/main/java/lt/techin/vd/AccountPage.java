@@ -15,6 +15,8 @@ public class AccountPage extends BasePage{
     private WebElement clickLogout;
     @FindBy(xpath = "/html//div[@id='root']//header/div/button[2]/a[@href='/profile']")
     private WebElement clickProfile;
+    @FindBy (css = "#root > div.flex.justify-around > a:nth-child(1)")
+    private WebElement addCategorieButton;
     public boolean checkWelcomeMessage(){
         return checkWelcomeMessage.isDisplayed();
     }
@@ -24,5 +26,9 @@ public class AccountPage extends BasePage{
     }
     public void clickLogout(){
         clickLogout.click();
+    }
+
+    public Boolean isCategoriesButtonDisplayed(){
+        return addCategorieButton.isDisplayed();
     }
 }

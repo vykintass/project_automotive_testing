@@ -44,6 +44,14 @@ public class HomePage extends BasePage{
         logoutButton.click();
     }
 
+    public Boolean isLoginButtonDisplayed(){
+       return clickLoginHomePage.isDisplayed();
+    }
+
+    public void clickUserProfile(){
+        logedUserLinkToProfile.click();
+    }
+
     public static String logedUserName(){
         return logedUserLinkToProfile.getText().split("\\(")[1].replace(")","");
     }

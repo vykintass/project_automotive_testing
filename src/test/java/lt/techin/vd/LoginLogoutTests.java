@@ -25,7 +25,7 @@ public class LoginLogoutTests extends BaseTest {
     }
 
     @Test
-    public void validLoginTest() throws InterruptedException {
+    public void validLoginTest() {
         homePage.clickSignUpHomePage();
 
         registrationPage.inputFirstName(firstName);
@@ -34,14 +34,12 @@ public class LoginLogoutTests extends BaseTest {
         registrationPage.inputPassword(password);
         registrationPage.inputRepeatPassword(password);
         registrationPage.clickSignUpButton();
-        Thread.sleep(3000);
         homePage.clickLogout();
 
         homePage.clickLogin();
         loginPage.inputEmail(email);
         loginPage.inputPassword(password);
         loginPage.clickLogIn();
-        Thread.sleep(3000);
 
         Assertions.assertTrue(accountPage.checkWelcomeMessage(), "Log in was not successful");
 
@@ -81,7 +79,8 @@ public class LoginLogoutTests extends BaseTest {
         Assertions.assertEquals(loginPage.getEmptyEmailErrorMessage(), "Please enter your email");
     }
 
-    @Test void emptyPasswordFieldOnLogin(){
+    @Test
+    public void emptyPasswordFieldOnLogin(){
         homePage.clickLogin();
         loginPage.inputEmail(email);
         loginPage.inputPassword("");
@@ -91,7 +90,8 @@ public class LoginLogoutTests extends BaseTest {
         Assertions.assertEquals(loginPage.getEmptyPassErrorMessage(), "Please enter your password");
     }
 
-    @Test void invalidEmailAndPassword(){
+    @Test
+    public void invalidEmailAndPassword(){
         homePage.clickSignUpHomePage();
 
         registrationPage.inputFirstName(firstName);
@@ -110,6 +110,79 @@ public class LoginLogoutTests extends BaseTest {
         //checks if invalid email error message appears
         Assertions.assertEquals(loginPage.getEmailErrorMessage(), "User with this email does not exists");
     }
+
+    @Test
+    public void logoutFromHomePage(){
+        homePage.clickSignUpHomePage();
+
+        registrationPage.inputFirstName(firstName);
+        registrationPage.inputLastName(lastName);
+        registrationPage.inputEmail(email);
+        registrationPage.inputPassword(password);
+        registrationPage.inputRepeatPassword(password);
+        registrationPage.clickSignUpButton();
+        homePage.clickLogout();
+
+        homePage.clickLogin();
+        loginPage.inputEmail(email);
+        loginPage.inputPassword(password);
+        loginPage.clickLogIn();
+        homePage.clickLogout();
+
+        //checks if LOGIN button is displayed after successful logout
+        Assertions.assertTrue(homePage.isLoginButtonDisplayed());
+    }
+
+    @Test
+    public void logoutFromUserPage(){
+        homePage.clickSignUpHomePage();
+
+        registrationPage.inputFirstName(firstName);
+        registrationPage.inputLastName(lastName);
+        registrationPage.inputEmail(email);
+        registrationPage.inputPassword(password);
+        registrationPage.inputRepeatPassword(password);
+        registrationPage.clickSignUpButton();
+        homePage.clickLogout();
+
+        homePage.clickLogin();
+        loginPage.inputEmail(email);
+        loginPage.inputPassword(password);
+        loginPage.clickLogIn();
+        homePage.clickUserProfile();
+        accountPage.clickLogout();
+
+        //checks if LOGIN button is displayed after successful logout
+        Assertions.assertTrue(homePage.isLoginButtonDisplayed());
+    }
+
+    @Test
+    public void adminLogin(){
+        homePage.clickLogin();
+        loginPage.inputEmail("admin@mail.com");
+        loginPage.inputPassword("123456");
+        loginPage.clickLogIn();
+        homePage.clickUserProfile();
+
+        //checks if user logged as administrator can see distinct to administrator button
+        Assertions.assertTrue(accountPage.isCategoriesButtonDisplayed());
+    }
+
+    @Test
+    public void adminLogout(){
+        homePage.clickLogin();
+        loginPage.inputEmail("admin@mail.com");
+        loginPage.inputPassword("123456");
+        loginPage.clickLogIn();
+        homePage.clickUserProfile();
+        accountPage.clickLogout();
+
+        //checks if user logged as administrator can see distinct to administrator button
+        Assertions.assertTrue(homePage.isLoginButtonDisplayed());
+    }
+
+
+
 
 
 
