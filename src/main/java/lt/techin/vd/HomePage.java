@@ -9,16 +9,20 @@ public class HomePage extends BasePage{
     public HomePage(WebDriver driver) {
         super(driver);
     }
-    @FindBy(css=".css-hyum1k-MuiToolbar-root [href='\\/login']")
+    @FindBy(css="button#login > a")
     private WebElement clickLoginHomePage;
-    @FindBy(css=".MuiToolbar-gutters.MuiToolbar-regular.MuiToolbar-root.css-hyum1k-MuiToolbar-root > button:nth-of-type(2)")
+    @FindBy(css="button#signup > a")
     private WebElement clickSignUpHomePage;
     @FindBy(id = "name")
     private WebElement inputName;
-    @FindBy (css = "div#root > .font-bold.text-3xl.underline")
+    @FindBy (css = ".MuiButtonBase-root:nth-child(5)")
     private WebElement checkWelcomeMessage;
     @FindBy (css ="[href='\\/login']" )
     private WebElement clickLogin;
+    @FindBy (css = "button#logout")
+    private WebElement logoutButton;
+    @FindBy (css = ".css-hyum1k-MuiToolbar-root [href='\\/profile']")
+    private static WebElement logedUserLinkToProfile;
 
     public void clickLoginHomePage() {
         clickLoginHomePage.click();
@@ -34,6 +38,22 @@ public class HomePage extends BasePage{
     }
     public void clickLogin(){
         clickLogin.click();
+    }
+
+    public void clickLogout(){
+        logoutButton.click();
+    }
+
+    public Boolean isLoginButtonDisplayed(){
+       return clickLoginHomePage.isDisplayed();
+    }
+
+    public void clickUserProfile(){
+        logedUserLinkToProfile.click();
+    }
+
+    public static String logedUserName(){
+        return logedUserLinkToProfile.getText().split("\\(")[1].replace(")","");
     }
 
 }

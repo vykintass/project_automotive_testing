@@ -11,6 +11,16 @@ public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
         super(driver);
     }
+
+    @FindBy (css = ".MuiBox-root.css-164r41r > .MuiTypography-body1.MuiTypography-root.css-1nkhxq8-MuiTypography-root")
+    private WebElement emailErrorMessage;
+
+    @FindBy (css = "p#email-helper-text")
+    private WebElement emptyEmailFieldErrorMessage;
+
+    @FindBy (css = "p#password-helper-text")
+    private WebElement emptyPasswordFieldErrorMessage;
+
     @FindBy(css=".MuiBox-root.css-164r41r a")
     private WebElement clickSignUp;
     @FindBy(id="email")
@@ -19,6 +29,9 @@ public class LoginPage extends BasePage {
     private WebElement inputPassword;
     @FindBy(css="main [tabindex]")
     private WebElement clickLogIn;
+
+    @FindBy (css = ".MuiBox-root.css-164r41r > .MuiTypography-body1.MuiTypography-root.css-1nkhxq8-MuiTypography-root")
+    private WebElement passwordDoNotMatchMessage;
     public void clickSignUp(){
         clickSignUp.click();
     }
@@ -32,6 +45,24 @@ public class LoginPage extends BasePage {
     public void clickLogIn(){
         clickLogIn.click();
     }
+
+    public String getEmailErrorMessage(){
+        return emailErrorMessage.getText();
+    }
+
+    public String getEmptyEmailErrorMessage(){
+        return emptyEmailFieldErrorMessage.getText();
+    }
+
+    public String getEmptyPassErrorMessage(){
+        return emptyPasswordFieldErrorMessage.getText();
+    }
+
+    public String getWrongPasswordErrorMessage(){
+        return passwordDoNotMatchMessage.getText().replace(" \uD83D\uDE2D", "");
+    }
+
+
 
 
 }

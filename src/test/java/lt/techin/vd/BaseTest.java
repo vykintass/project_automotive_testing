@@ -9,13 +9,39 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class BaseTest {
+    protected String firstName;
+    protected String lastName;
+    protected String email;
+    protected String password;
+    protected WebDriver driver;
+    protected HomePage homePage;
+    protected RegistrationPage registrationPage;
 
-    WebDriver driver;
+    protected LoginPage loginPage;
+    protected AccountPage accountPage;
+
+    protected ProfilePage profilePage;
+
+    protected RecipePage recipePage;
+
     @BeforeEach
     void setup(){
         driver = new ChromeDriver();
+        homePage = new HomePage(driver);
+        registrationPage = new RegistrationPage(driver);
+        loginPage = new LoginPage(driver);
+        accountPage = new AccountPage(driver);
+        profilePage = new ProfilePage(driver);
+        recipePage = new RecipePage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("http://localhost:5173/");
+
+        UserData.generateUserData();
+        firstName = UserData.getFirstName();
+        lastName = UserData.getLastName();
+        email = UserData.getEmail();
+        password = UserData.getPassword();
+
 
     }
     @AfterEach
