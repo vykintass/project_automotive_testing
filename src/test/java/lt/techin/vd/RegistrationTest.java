@@ -6,11 +6,7 @@ import org.junit.jupiter.api.Test;
 public class RegistrationTest extends BaseTest{
     @Test
     public void registrationWithValidCredentialsTest() {
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         //simple registration with valid credentials
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
@@ -24,11 +20,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithEmptyFirstNameTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName("");
         registrationPage.inputLastName(lastName);
@@ -40,11 +32,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithTooLongFirstNameTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName("Alexandriannaelizabethvictoriaameliaangelinajeniferrosemariechristinaophiliarosalineclarabellavendela");
         registrationPage.inputLastName(lastName);
@@ -56,11 +44,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithInvalidFirstNameTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName("@./'[]");
         registrationPage.inputLastName(lastName);
@@ -72,11 +56,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithInvalidLastNameTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName("@./'[]");
@@ -88,11 +68,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithTooLongLastNameTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputLastName("Alexandriannaelizabethvictoriaameliaangelinajeniferrosemariechristinaophiliarosalineclarabellavendela");
         registrationPage.inputFirstName(firstName);
@@ -104,11 +80,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithEmptyLastNameTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName("");
@@ -120,11 +92,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithEmptyEmailTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -136,11 +104,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithNoEtaTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -152,11 +116,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithNoDotTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -168,11 +128,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithNoDomenTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -184,11 +140,6 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithUsedEmailTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -200,11 +151,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithEmptyPasswordTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -216,11 +163,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithTooLongPasswordTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -232,11 +175,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithTooShortPasswordTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -248,11 +187,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithIncorrectPasswordFormTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -264,11 +199,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithEmptyRepeatPasswordTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
@@ -280,11 +211,7 @@ public class RegistrationTest extends BaseTest{
     }
     @Test
     public void registrationWithMismatchingRepeatPasswordTest(){
-        UserData.generateUserData();
-        String firstName = UserData.getFirstName();
-        String lastName = UserData.getLastName();
-        String email = UserData.getEmail();
-        String password = UserData.getPassword();
+
         homePage.clickSignUpHomePage();
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);

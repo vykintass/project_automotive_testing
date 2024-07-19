@@ -118,10 +118,6 @@ public class RecipePage extends BasePage {
     }
 
     public void setClickCategory() {
-<<<<<<< HEAD
-=======
-
->>>>>>> vykintas
         clickCategory.click();
     }
     public void clickCategoryDropDownEdit(){
