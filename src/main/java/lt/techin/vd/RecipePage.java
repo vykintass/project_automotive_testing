@@ -63,7 +63,6 @@ public class RecipePage extends BasePage {
     }
 
     public void setClickCategory() {
-        ;
         clickCategory.click();
     }
 
