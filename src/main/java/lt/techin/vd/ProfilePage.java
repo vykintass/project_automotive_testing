@@ -18,6 +18,10 @@ public class ProfilePage extends BasePage{
     private WebElement editConfirmation;
     @FindBy(css = "p")
     private WebElement getRecipesText;
+    @FindBy(css="div#root > h1:nth-of-type(2)")
+    private WebElement checkTextInH1;
+    @FindBy(id="link")
+    private WebElement clickCategoriesButton;
     public void clickProfile(){
         clickProfile.click();
     }
@@ -32,5 +36,11 @@ public class ProfilePage extends BasePage{
     }
     public String  getRecipesText(){
         return   getRecipesText.getText();
+    }
+    public boolean checkTextInH1(){
+      return  checkTextInH1.isDisplayed();
+    }
+    public void clickCategoriesButton(){
+        clickCategoriesButton.click();
     }
 }

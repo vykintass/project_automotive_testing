@@ -68,7 +68,7 @@ public class RecipePage extends BasePage {
     private WebElement getUrlErrorMessage;
     @FindBy(css = "[class] [tabindex='0']:nth-child(8)")
     private WebElement clickUpdateRecipe;
-    @FindBy(css = ".card-title.truncate")
+    @FindBy(css = ".flex.flex-wrap.gap-10.justify-center > div:nth-of-type(1) .break-all.card-title")
     private WebElement getUpdatedCardTitle;
     @FindBy(css = "div#mui-component-select-category")
     private WebElement clickCategoryDropDownEdit;

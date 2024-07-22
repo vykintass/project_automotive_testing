@@ -160,7 +160,7 @@ public class LoginLogoutTests extends BaseTest {
     public void adminLogin(){
         homePage.clickLogin();
         loginPage.inputEmail("admin@mail.com");
-        loginPage.inputPassword("123456");
+        loginPage.inputPassword("abc");
         loginPage.clickLogIn();
         homePage.clickUserProfile();
 
@@ -172,7 +172,7 @@ public class LoginLogoutTests extends BaseTest {
     public void adminLogout(){
         homePage.clickLogin();
         loginPage.inputEmail("admin@mail.com");
-        loginPage.inputPassword("123456");
+        loginPage.inputPassword("abc");
         loginPage.clickLogIn();
         homePage.clickUserProfile();
         accountPage.clickLogout();
