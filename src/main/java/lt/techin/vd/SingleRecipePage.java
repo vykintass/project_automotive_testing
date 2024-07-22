@@ -25,6 +25,13 @@ public class SingleRecipePage extends BasePage{
     @FindBy (xpath = "//div[@id='root']/div[@class='MuiBox-root css-0']//div[@class='MuiBox-root css-k008qs']/li[3]")
     private WebElement showTenComments;
 
+    @FindBy (css = ".Mui-error.MuiFormHelperText-contained.MuiFormHelperText-root.MuiFormHelperText-sizeMedium.css-1wc848c-MuiFormHelperText-root")
+    private WebElement emptyCommentMessage;
+
+    public Boolean emptyCommentErrorMessageDisplayed(){
+       return emptyCommentMessage.isDisplayed();
+    }
+
     public void clickShowTenComments(){
         showTenComments.click();
     }
