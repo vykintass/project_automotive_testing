@@ -28,8 +28,8 @@ public class SingleRecipePage extends BasePage{
     @FindBy (css = ".Mui-error.MuiFormHelperText-contained.MuiFormHelperText-root.MuiFormHelperText-sizeMedium.css-1wc848c-MuiFormHelperText-root")
     private WebElement emptyCommentMessage;
 
-    public Boolean emptyCommentErrorMessageDisplayed(){
-       return emptyCommentMessage.isDisplayed();
+    public String ErrorMessageDisplayed(){
+       return emptyCommentMessage.getText();
     }
 
     public void clickShowTenComments(){
