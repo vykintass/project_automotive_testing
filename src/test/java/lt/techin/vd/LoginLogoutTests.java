@@ -17,10 +17,6 @@ public class LoginLogoutTests extends BaseTest {
         registrationPage.inputRepeatPassword(password);
         registrationPage.clickSignUpButton();
 
-        //checks if confirmation message appears
-//        Assertions.assertTrue(homePage.checkWelcomeMessage(), "registration was not successful");
-
-        //checks if newly registered user is logged in
         Assertions.assertEquals(firstName.toLowerCase(), HomePage.logedUserName().toLowerCase());
     }
 
@@ -41,10 +37,8 @@ public class LoginLogoutTests extends BaseTest {
         loginPage.inputPassword(password);
         loginPage.clickLogIn();
 
-        Assertions.assertTrue(accountPage.checkWelcomeMessage(), "Log in was not successful");
-
         //checks if newly registered user is logged in
-//       Assertions.assertEquals(firstName.toLowerCase(), HomePage.logedUserName().toLowerCase());
+       Assertions.assertEquals(firstName.toLowerCase(), HomePage.logedUserName().toLowerCase());
     }
 
     @Test
