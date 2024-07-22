@@ -35,7 +35,7 @@ public class UserFeedback extends BaseTest {
         accountPage.clickCategory();
         categoryPage.clickViewRecipe();
 
-        recipe.clickShowTenComments();
+        //recipe.clickShowTenComments();
         recipe.addComment(randomComment);
         System.out.println(randomComment);
         recipe.clickFiveStars();
@@ -76,7 +76,7 @@ public class UserFeedback extends BaseTest {
         accountPage.clickCategory();
         categoryPage.clickViewRecipe();
 
-        recipe.clickShowTenComments();
+        //recipe.clickShowTenComments();
         recipe.addComment("");
         recipe.clickFiveStars();
         recipe.clickAddComment();
@@ -123,7 +123,7 @@ public class UserFeedback extends BaseTest {
                 "09kmW4b8nyU2FeuMzWBcmy1xR9c8brRUK3QMSHE1SE6HyGmieQbYvj9LY6wi9DRHKNJXBZaZbqJiixQrzqkP5Scy6npgzWKi" +
                 "YAvX46uEHHLVf2pgNBfivZvtZAjd5A2rVdJcLejKXWRSr7NXYMC7JG0x1WCkJZLLkGHQJ6q0nXV614RnkUSWMeG9cXgd9HAE" +
                 "YDcMDNvD9CpU2rqyjtUpC7gBWwqZGd7SrDnG2WXbCixvGNFFVHAmFyUXjpFbyxGuPdPZcphx";
-        recipe.clickShowTenComments();
+        //recipe.clickShowTenComments();
         recipe.addComment(longComment);
         recipe.clickFiveStars();
         recipe.clickAddComment();

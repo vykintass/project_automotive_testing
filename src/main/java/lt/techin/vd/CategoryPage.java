@@ -15,7 +15,7 @@ public class CategoryPage extends BasePage{
     @FindBy (css = ".MuiTypography-gutterBottom.MuiTypography-h5.MuiTypography-root.css-7cysgb-MuiTypography-root")
     private WebElement recipeTitle;
 
-    @FindBy (css = "[href='\\/recipe\\/8']")
+    @FindBy (css = "#root [role='group']:first-child .MuiBox-root [tabindex]")
     private WebElement viewRecipe;
 
     public String getWelcomeText(){
