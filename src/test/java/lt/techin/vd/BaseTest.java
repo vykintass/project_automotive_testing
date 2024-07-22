@@ -5,25 +5,24 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class BaseTest {
-    protected String firstName;
-    protected String lastName;
-    protected String email;
-    protected String password;
+    protected String firstName, lastName, email, password;
+    protected String recipeTitle, amount, ingredient, step, recipeUrl;
+    protected String randomComment = new RandomComment().generateRandomComment();
     protected WebDriver driver;
     protected HomePage homePage;
     protected RegistrationPage registrationPage;
-
     protected LoginPage loginPage;
     protected AccountPage accountPage;
-
     protected ProfilePage profilePage;
     protected RecipePage recipePage;
     protected CategoryPage categoryPage;
     protected CuisinesPage cuisinesPage;
+    protected SingleRecipePage recipe;
 
     @BeforeEach
     void setup(){
@@ -36,6 +35,8 @@ public class BaseTest {
         recipePage = new RecipePage(driver);
         categoryPage = new CategoryPage(driver);
         cuisinesPage = new CuisinesPage(driver);
+        recipe = new SingleRecipePage(driver);
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         driver.get("http://localhost:5173/");
@@ -46,10 +47,18 @@ public class BaseTest {
         email = UserData.getEmail();
         password = UserData.getPassword();
 
+        RecipeData.generateRecipeData();
+        recipeTitle = RecipeData.getTitle();
+        amount = RecipeData.getAmount();
+        ingredient = RecipeData.getIngredient();
+        step = RecipeData.getStep();
+        recipeUrl = RecipeData.getUrl();
+
+
 
     }
     @AfterEach
     void tearDown(){
-        driver.quit();
+        //driver.quit();
     }
 }
