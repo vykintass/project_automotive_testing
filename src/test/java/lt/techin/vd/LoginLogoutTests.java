@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class LoginLogoutTests extends BaseTest {
 
     @Test
-    public void createUserAndLogin(){
+    public void createUserAndLogin() throws InterruptedException {
 
         //creates new user and checks if he is logged in
         homePage.clickSignUpHomePage();
@@ -15,6 +15,7 @@ public class LoginLogoutTests extends BaseTest {
         registrationPage.inputEmail(email);
         registrationPage.inputPassword(password);
         registrationPage.inputRepeatPassword(password);
+
         registrationPage.clickSignUpButton();
 
         //checks if confirmation message appears

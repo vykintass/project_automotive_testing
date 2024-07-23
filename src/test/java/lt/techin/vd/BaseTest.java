@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BaseTest {
@@ -25,6 +25,7 @@ public class BaseTest {
     protected CategoryPage categoryPage;
     protected CuisinesPage cuisinesPage;
 
+    private WebDriverWait wait;
     @BeforeEach
     void setup(){
         driver = new ChromeDriver();
@@ -37,6 +38,7 @@ public class BaseTest {
         categoryPage = new CategoryPage(driver);
         cuisinesPage = new CuisinesPage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Proper initialization
 
         driver.get("http://localhost:5173/");
 
@@ -50,6 +52,6 @@ public class BaseTest {
     }
     @AfterEach
     void tearDown(){
-        driver.quit();
+       //driver.quit();
     }
 }

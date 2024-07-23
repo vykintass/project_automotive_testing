@@ -2,10 +2,18 @@ package lt.techin.vd;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.imageio.plugins.tiff.TIFFImageReadParam;
+import java.time.Duration;
 
 public class AddRecipeTest extends BaseTest {
 
     private final Object monitor = new Object();
+    private WebDriverWait wait;
 
     //TC001a
     @Test
@@ -50,7 +58,6 @@ public class AddRecipeTest extends BaseTest {
                 e.printStackTrace();
             }
         }
-        //RecipePage recipePage = PageFactory.initElements(driver, RecipePage.class);
         RecipeData.generateRecipeData();
         recipePage.inputTitle(RecipeData.getTitle());
         recipePage.inputAmount(RecipeData.getAmount());
@@ -63,6 +70,12 @@ public class AddRecipeTest extends BaseTest {
         recipePage.inputImageUrl(RecipeData.getUrl());
         //Select from dropwdowns
         recipePage.clickAddRecipeButton();
+
+        By toastSelector = recipePage.getToastMessage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
+        String toast = toastMessage.getText();
+        Assertions.assertEquals("Recipe created successfully",toast, "Fail");
     }
 
     //TC001
@@ -87,8 +100,6 @@ public class AddRecipeTest extends BaseTest {
         loginPage.inputEmail(email);
         loginPage.inputPassword(password);
         loginPage.clickLogIn();
-        //Wait to make profile button clickable
-
         synchronized (monitor) {
             try {
                 monitor.wait(5000);
@@ -105,8 +116,6 @@ public class AddRecipeTest extends BaseTest {
         recipePage.inputAmount(RecipeData.getAmount());
         recipePage.inputIngredient(RecipeData.getIngredient());
         recipePage.inputStep(RecipeData.getStep());
-        //recipePage.setClickCategoriesDropdownList();
-        //recipePage.setClickCategory();
         recipePage.setClickCuisineDropdownList();
         recipePage.setClickCuisine();
         recipePage.inputImageUrl(RecipeData.getUrl());
@@ -137,7 +146,6 @@ public class AddRecipeTest extends BaseTest {
         loginPage.inputEmail(email);
         loginPage.inputPassword(password);
         loginPage.clickLogIn();
-        //Wait to make profile button clickable
 
         synchronized (monitor) {
             try {
@@ -154,8 +162,8 @@ public class AddRecipeTest extends BaseTest {
         recipePage.inputAmount(RecipeData.getAmount());
         recipePage.inputIngredient(RecipeData.getIngredient());
         recipePage.inputStep(RecipeData.getStep());
-        //recipePage.setClickCategoriesDropdownList();
-        //recipePage.setClickCategory();
+        recipePage.setClickCategoriesDropdownList();
+        recipePage.setClickCategory();
         recipePage.setClickCuisineDropdownList();
         recipePage.setClickCuisine();
         recipePage.inputImageUrl(RecipeData.getUrl());
@@ -311,8 +319,12 @@ public class AddRecipeTest extends BaseTest {
             }
         }
         Assertions.assertTrue(profilePage.checkTextInH1(),"Fail");
-       // Assertions.assertEquals("Recipe created successfully", profilePage.getToast(), "Fail");
-        //Assertions.assertEquals("Image URL field is required", recipePage.getUrlErrorMessage(), "Fail");
+        By toastSelector = recipePage.getToastMessage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
+        String toast = toastMessage.getText();
+        Assertions.assertEquals("Recipe created successfully",toast, "Fail");
+
     }
 
     //TC001f
@@ -357,8 +369,13 @@ public class AddRecipeTest extends BaseTest {
         recipePage.setClickCategory();
         recipePage.inputImageUrl(RecipeData.getUrl());
         recipePage.clickAddRecipeButton();
-        Assertions.assertTrue(profilePage.checkTextInH1(),"Fail");
 
+      // Assertions.assertTrue(profilePage.checkTextInH1(),"Fail");
+        By toastSelector = recipePage.getToastMessage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
+        String toast = toastMessage.getText();
+        Assertions.assertEquals("Recipe created successfully",toast, "Fail");
         //Assertions.assertEquals("Cuisine is required", recipePage.getCuisineErrorMessage(), "Fail");
     }
 
@@ -588,7 +605,21 @@ public class AddRecipeTest extends BaseTest {
                 e.printStackTrace();
             }
         }
-        Assertions.assertTrue(profilePage.getEditConfirmationMessage(),"fail");
+
+        By toastSelector = recipePage.getToastMessage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
+        String toast = toastMessage.getText();
+        Assertions.assertEquals("Recipe updated successfully",toast, "Fail");
+//        synchronized (monitor) {
+//            try {
+//                monitor.wait(100);
+//            } catch (InterruptedException e) {
+//                Thread.currentThread().interrupt();
+//                e.printStackTrace();
+//            }
+//        }
+
         Assertions.assertEquals("New title", recipePage.getUpdatedCardTitle(), "Fail");
     }
     //TC002a
@@ -666,9 +697,13 @@ public class AddRecipeTest extends BaseTest {
             }
         }
         Assertions.assertEquals("appetiser", recipePage.getUpdatedCardCategory(), "Fail");
-        Assertions.assertTrue(profilePage.getEditConfirmationMessage(),"fail");
 
-        //Assertions.assertFalse(recipePage.checkSecondIngredientDeleteButton(),"Fail");
+        By toastSelector = recipePage.getToastMessage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
+        String toast = toastMessage.getText();
+        Assertions.assertEquals("Recipe updated successfully",toast, "Fail");
+
     }
     //TC002b
     @Test
@@ -743,7 +778,11 @@ public class AddRecipeTest extends BaseTest {
                 e.printStackTrace();
             }
         }
-        Assertions.assertTrue(profilePage.getEditConfirmationMessage(),"fail");
+        By toastSelector = recipePage.getToastMessage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
+        String toast = toastMessage.getText();
+        Assertions.assertEquals("Recipe updated successfully",toast, "Fail");
     }
     //TC002c
     @Test
@@ -818,7 +857,11 @@ public class AddRecipeTest extends BaseTest {
                 e.printStackTrace();
             }
         }
-        Assertions.assertTrue(profilePage.getEditConfirmationMessage(),"fail");
+        By toastSelector = recipePage.getToastMessage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
+        String toast = toastMessage.getText();
+        Assertions.assertEquals("Recipe updated successfully",toast, "Fail");
     }
     //TC002d
     @Test
@@ -893,8 +936,11 @@ public class AddRecipeTest extends BaseTest {
                 e.printStackTrace();
             }
         }
-        Assertions.assertTrue(profilePage.getEditConfirmationMessage(),"fail");
-    }
+        By toastSelector = recipePage.getToastMessage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
+        String toast = toastMessage.getText();
+        Assertions.assertEquals("Recipe updated successfully",toast, "Fail");    }
     //TC002e
     @Test
     public void editUrlTest() throws InterruptedException {
@@ -968,8 +1014,11 @@ public class AddRecipeTest extends BaseTest {
                 e.printStackTrace();
             }
         }
-        Assertions.assertTrue(profilePage.getEditConfirmationMessage(),"fail");
-    }
+        By toastSelector = recipePage.getToastMessage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
+        String toast = toastMessage.getText();
+        Assertions.assertEquals("Recipe updated successfully",toast, "Fail");    }
     //TC002f
     @Test
     public void editCuisineTest() throws InterruptedException {
@@ -1046,8 +1095,11 @@ public class AddRecipeTest extends BaseTest {
                 e.printStackTrace();
             }
         }
-        Assertions.assertTrue(profilePage.getEditConfirmationMessage(),"fail");
-        Assertions.assertEquals("brazilian", recipePage.getUpdatedCardCusine(), "Fail");
+        By toastSelector = recipePage.getToastMessage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
+        String toast = toastMessage.getText();
+        Assertions.assertEquals("Recipe updated successfully",toast, "Fail");        Assertions.assertEquals("brazilian", recipePage.getUpdatedCardCusine(), "Fail");
     }
     //TC003
     @Test
