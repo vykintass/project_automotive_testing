@@ -12,7 +12,6 @@ public class AccountPage extends BasePage{
         super(driver);
     }
     @FindBy (css = ".MuiButtonBase-root:nth-child(5)")
-//    @FindBy (css = ".font-bold.mb-10.mt-10.text-3xl.text-center.underline")
     private WebElement checkWelcomeMessage;
     @FindBy  (css = ".MuiToolbar-gutters.MuiToolbar-regular.MuiToolbar-root.css-hyum1k-MuiToolbar-root > button:nth-of-type(3)")
     private WebElement clickLogout;
