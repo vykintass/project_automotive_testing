@@ -56,7 +56,7 @@ public class RegistrationTest extends BaseTest{
         registrationPage.clickSignUpButton();
         Assertions.assertEquals("First Name must be less than 100 characters",registrationPage.getfirstNameMessage(), "registration was sccessful");
     }
-<<<<<<< HEAD
+
     @Test
     public void registrationWithInvalidFirstNameTest(){
 
@@ -81,7 +81,7 @@ public class RegistrationTest extends BaseTest{
         registrationPage.clickSignUpButton();
         Assertions.assertEquals("Please enter valid name format",registrationPage.getLastNameMessage(), "registration was sccessful");
     }
-=======
+
 //    @Test
 //    public void registrationWithInvalidFirstNameTest(){
 //
@@ -106,7 +106,7 @@ public class RegistrationTest extends BaseTest{
 //        registrationPage.clickSignUpButton();
 //        Assertions.assertEquals("Please enter valid name format",registrationPage.getLastNameMessage(), "registration was sccessful");
 //    }
->>>>>>> main
+
     @Test
     public void registrationWithTooLongLastNameTest(){
 
