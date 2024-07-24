@@ -19,19 +19,11 @@ public class BaseTest {
 
     protected LoginPage loginPage;
     protected AccountPage accountPage;
-
     protected ProfilePage profilePage;
-
-<<<<<<< HEAD
     protected RecipePage recipePage;
+    protected CategoryPage categoryPage;
+    protected CuisinesPage cuisinesPage;
 
-=======
-    ProfilePage profilePage;
-
-    RecipePage recipePage;
-    CategoryPage categoryPage;
-    CuisinesPage cuisinesPage;
->>>>>>> vykintas
     @BeforeEach
     void setup(){
         driver = new ChromeDriver();
