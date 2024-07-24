@@ -57,7 +57,6 @@ public class CategoryPage extends BasePage {
     public void deleteCategoryField () {
             inputCategory.clear();
         }
-
 }
 
 
