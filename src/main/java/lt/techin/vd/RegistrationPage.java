@@ -35,6 +35,7 @@ public class RegistrationPage extends BasePage{
     private WebElement getPasswordMessage;
     @FindBy(id="repeatPassword-helper-text")
     private WebElement getRepeatPasswordMessage;
+
     public void inputFirstName(String firstname ){
         inputFirstName.sendKeys(firstname);
     }
@@ -50,7 +51,7 @@ public class RegistrationPage extends BasePage{
     public void inputRepeatPassword(String password){
         inputRepeatPassword.sendKeys(password);
     }
-        public void clickSignUpButton(){
+    public void clickSignUpButton(){
     clickSignUpButton.click();
     }
     public String getfirstNameMessage(){

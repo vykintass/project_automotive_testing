@@ -1,6 +1,7 @@
 package lt.techin.vd;
 
 import org.checkerframework.checker.interning.qual.FindDistinct;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,14 +11,13 @@ public class AccountPage extends BasePage {
     public AccountPage(WebDriver driver) {
         super(driver);
     }
-
-    @FindBy(css = ".MuiButtonBase-root:nth-child(5)")
+    @FindBy (css = ".MuiButtonBase-root:nth-child(5)")
     private WebElement checkWelcomeMessage;
     @FindBy(css = ".MuiToolbar-gutters.MuiToolbar-regular.MuiToolbar-root.css-hyum1k-MuiToolbar-root > button:nth-of-type(3)")
     private WebElement clickLogout;
-    @FindBy(xpath = "/html//div[@id='root']//header/div/button[2]/a[@href='/profile']")
+    @FindBy(id = "profile")
     private WebElement clickProfile;
-    @FindBy(css = "#root > div.flex.justify-around > a:nth-child(1)")
+    @FindBy (css = "#root > div.flex.justify-around > a:nth-child(1)")
     private WebElement addCategorieButton;
     @FindBy(css = "button:nth-of-type(3) > a")
     private WebElement clickCuisines;
@@ -26,7 +26,7 @@ public class AccountPage extends BasePage {
     @FindBy(css = ".MuiTypography-h6.MuiTypography-root.css-p7bec2-MuiTypography-root > button:nth-of-type(1) > a")
     private WebElement clickAboutButton;
 
-    public boolean checkWelcomeMessage() {
+    public boolean checkWelcomeMessage(){
         return checkWelcomeMessage.isDisplayed();
     }
 
@@ -38,17 +38,19 @@ public class AccountPage extends BasePage {
         clickLogout.click();
     }
 
-    public Boolean isCategoriesButtonDisplayed() {
+    public Boolean isCategoriesButtonDisplayed(){
         return addCategorieButton.isDisplayed();
     }
-    public void clickCuisines() {
+    public void clickCuisines(){
         clickCuisines.click();
         }
     public void clickCategory() {
-            clickCategory.click();
+        clickCategory.click();
         }
     public void clickAboutButton() {
-            clickAboutButton.click();
-        }
+        clickAboutButton.click();
     }
+
+
+}
 
