@@ -370,13 +370,10 @@ public class AddRecipeTest extends BaseTest {
         recipePage.inputImageUrl(RecipeData.getUrl());
         recipePage.clickAddRecipeButton();
 
-      // Assertions.assertTrue(profilePage.checkTextInH1(),"Fail");
-        By toastSelector = recipePage.getToastMessage();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
-        String toast = toastMessage.getText();
-        Assertions.assertEquals("Recipe created successfully",toast, "Fail");
-        //Assertions.assertEquals("Cuisine is required", recipePage.getCuisineErrorMessage(), "Fail");
+
+
+        Assertions.assertEquals("Cuisine is required", recipePage.getCuisineErrorMessage(), "Fail");
+
     }
 
     //TC001g
