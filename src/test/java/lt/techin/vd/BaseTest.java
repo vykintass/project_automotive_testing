@@ -26,6 +26,9 @@ public class BaseTest {
     @BeforeEach
     void setup(){
         driver = new ChromeDriver();
+
+
+
         homePage = new HomePage(driver);
         registrationPage = new RegistrationPage(driver);
         loginPage = new LoginPage(driver);
