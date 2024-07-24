@@ -53,5 +53,9 @@ public class AccountPage extends BasePage {
         clickAboutButton.click();
     }
 
+//    public WebElement getProfileButton() {
+//        return driver.findElement(By.cssSelector("button#profile"));
+//    }
+
 }
 

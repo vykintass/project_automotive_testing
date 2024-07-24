@@ -20,9 +20,7 @@ public class BaseTest {
     protected RecipePage recipePage;
     protected CategoryPage categoryPage;
     protected CuisinesPage cuisinesPage;
-
     protected SingleRecipePage recipe;
-
     protected WebDriverWait wait;
 
     @BeforeEach
@@ -39,6 +37,7 @@ public class BaseTest {
         recipe = new SingleRecipePage(driver);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Proper initialization
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Proper initialization
 
