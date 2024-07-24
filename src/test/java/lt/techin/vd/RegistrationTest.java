@@ -2,6 +2,12 @@ package lt.techin.vd;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class RegistrationTest extends BaseTest{
     @Test
@@ -17,6 +23,11 @@ public class RegistrationTest extends BaseTest{
         registrationPage.clickSignUpButton();
         Assertions.assertTrue(accountPage.checkWelcomeMessage(), "registration was not successful");
 
+        By toastSelector = recipePage.getToastMessage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
+        String toast = toastMessage.getText();
+        Assertions.assertEquals("Signup successful!",toast, "Fail");
     }
     @Test
     public void registrationWithEmptyFirstNameTest(){
@@ -29,7 +40,10 @@ public class RegistrationTest extends BaseTest{
         registrationPage.inputRepeatPassword(password);
         registrationPage.clickSignUpButton();
         Assertions.assertEquals("Please enter your name",registrationPage.getfirstNameMessage(), "registration was sccessful");
+
+
     }
+
     @Test
     public void registrationWithTooLongFirstNameTest(){
 
@@ -42,6 +56,7 @@ public class RegistrationTest extends BaseTest{
         registrationPage.clickSignUpButton();
         Assertions.assertEquals("First Name must be less than 100 characters",registrationPage.getfirstNameMessage(), "registration was sccessful");
     }
+<<<<<<< HEAD
     @Test
     public void registrationWithInvalidFirstNameTest(){
 
@@ -66,6 +81,32 @@ public class RegistrationTest extends BaseTest{
         registrationPage.clickSignUpButton();
         Assertions.assertEquals("Please enter valid name format",registrationPage.getLastNameMessage(), "registration was sccessful");
     }
+=======
+//    @Test
+//    public void registrationWithInvalidFirstNameTest(){
+//
+//        homePage.clickSignUpHomePage();
+//        registrationPage.inputFirstName("@./'[]");
+//        registrationPage.inputLastName(lastName);
+//        registrationPage.inputEmail(email);
+//        registrationPage.inputPassword(password);
+//        registrationPage.inputRepeatPassword(password);
+//        registrationPage.clickSignUpButton();
+//        Assertions.assertEquals("Please enter valid name format",registrationPage.getfirstNameMessage(), "registration was sccessful");
+//    }
+//    @Test
+//    public void registrationWithInvalidLastNameTest(){
+//
+//        homePage.clickSignUpHomePage();
+//        registrationPage.inputFirstName(firstName);
+//        registrationPage.inputLastName("@./'[]");
+//        registrationPage.inputEmail(email);
+//        registrationPage.inputPassword(password);
+//        registrationPage.inputRepeatPassword(password);
+//        registrationPage.clickSignUpButton();
+//        Assertions.assertEquals("Please enter valid name format",registrationPage.getLastNameMessage(), "registration was sccessful");
+//    }
+>>>>>>> main
     @Test
     public void registrationWithTooLongLastNameTest(){
 

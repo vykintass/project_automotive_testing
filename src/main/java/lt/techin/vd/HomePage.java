@@ -37,6 +37,7 @@ public class HomePage extends BasePage{
 //    public boolean checkWelcomeMessage(){
 //        return checkWelcomeMessage.isDisplayed();
 //    }
+
     public void clickLogin(){
         clickLogin.click();
     }
@@ -51,6 +52,10 @@ public class HomePage extends BasePage{
 
     public void clickUserProfile(){
         logedUserLinkToProfile.click();
+    }
+
+    public String checkWelcomeMessage(){
+        return checkWelcomeMessage.getText();
     }
 
     public static String logedUserName(){

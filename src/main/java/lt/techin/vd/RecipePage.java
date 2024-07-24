@@ -1,5 +1,6 @@
 package lt.techin.vd;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -68,7 +69,7 @@ public class RecipePage extends BasePage {
     private WebElement getUrlErrorMessage;
     @FindBy(css = "[class] [tabindex='0']:nth-child(8)")
     private WebElement clickUpdateRecipe;
-    @FindBy(css = ".card-title.truncate")
+    @FindBy(css = ".flex.flex-wrap.gap-10.justify-center > div:nth-of-type(1) .break-all.card-title")
     private WebElement getUpdatedCardTitle;
     @FindBy(css = "div#mui-component-select-category")
     private WebElement clickCategoryDropDownEdit;
@@ -82,6 +83,11 @@ public class RecipePage extends BasePage {
     private  WebElement clickDeleteRecipe;
     @FindBy(css = "[class='mt-4 flex justify-center space-x-2'] .btn-error")
     private WebElement clickConfirmDelete;
+//        @FindBy(css="div:nth-of-type(54) > .go4109123758  div[role='status']")
+//        private WebElement getToastMessage ;div:nth-of-type(62) > .go4109123758 > .go2072408551
+        public By getToastMessage(){
+            return By.cssSelector(".go4109123758 > .go2072408551");
+        }
 
     public void inputTitle(String title) {
         inputTitle.sendKeys(title);
