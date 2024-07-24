@@ -30,15 +30,12 @@ public class CategoryPage extends BasePage {
     public String getWelcomeText() {
         return getText.getText();
     }
-
     public void clickViewRecipe() {
         recipeTitle.click();
     }
-
     public String getRecipeName() {
         return recipeTitle.getText().split(": ")[1];
     }
-
     public void inputCategory (String category){
             inputCategory.sendKeys(category);
         }
@@ -59,9 +56,8 @@ public class CategoryPage extends BasePage {
         }
     public void deleteCategoryField () {
             inputCategory.clear();
-
         }
-    }
 
+}
 
 
