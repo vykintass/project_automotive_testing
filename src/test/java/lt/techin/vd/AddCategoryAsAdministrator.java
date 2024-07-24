@@ -16,8 +16,8 @@ public class AddCategoryAsAdministrator extends BaseTest{
     public void addNewCategory(){
 
         homePage.clickLogin();
-        loginPage.inputEmail("batonas@gmail.com");
-        loginPage.inputPassword("abc");
+        loginPage.inputEmail("admin@mail.com");
+        loginPage.inputPassword("123456");
         loginPage.clickLogIn();
         //Wait to make profile button clickable
 //        By profileButtonSelector = By.cssSelector(".css-hyum1k-MuiToolbar-root [href='\\/profile']");
@@ -60,8 +60,8 @@ public class AddCategoryAsAdministrator extends BaseTest{
     public void addTheSameCategory(){
 
         homePage.clickLogin();
-        loginPage.inputEmail("batonas@gmail.com");
-        loginPage.inputPassword("abc");
+        loginPage.inputEmail("admin@mail.com");
+        loginPage.inputPassword("123456");
         loginPage.clickLogIn();
         //Wait to make profile button clickable
 
@@ -107,8 +107,8 @@ public class AddCategoryAsAdministrator extends BaseTest{
     public void deleteCategory(){
 
         homePage.clickLogin();
-        loginPage.inputEmail("batonas@gmail.com");
-        loginPage.inputPassword("abc");
+        loginPage.inputEmail("admin@mail.com");
+        loginPage.inputPassword("123456");
         loginPage.clickLogIn();
         //Wait to make profile button clickable
 
@@ -142,8 +142,8 @@ public class AddCategoryAsAdministrator extends BaseTest{
     public void pressCancelWhenDeletingCategory(){
 
         homePage.clickLogin();
-        loginPage.inputEmail("batonas@gmail.com");
-        loginPage.inputPassword("abc");
+        loginPage.inputEmail("admin@mail.com");
+        loginPage.inputPassword("123456");
         loginPage.clickLogIn();
         //Wait to make profile button clickable
 

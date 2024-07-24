@@ -15,7 +15,7 @@ public class AccountPage extends BasePage {
     private WebElement checkWelcomeMessage;
     @FindBy(css = ".MuiToolbar-gutters.MuiToolbar-regular.MuiToolbar-root.css-hyum1k-MuiToolbar-root > button:nth-of-type(3)")
     private WebElement clickLogout;
-    @FindBy(id = "profile")
+    @FindBy(css = "#profile")
     private WebElement clickProfile;
     @FindBy (css = "#root > div.flex.justify-around > a:nth-child(1)")
     private WebElement addCategorieButton;

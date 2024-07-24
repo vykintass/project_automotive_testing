@@ -23,7 +23,7 @@ public class LoginLogoutTests extends BaseTest {
 
         //checks if newly registered user is logged in
 
-        Assertions.assertEquals(firstName.toLowerCase(), HomePage.logedUserName().toLowerCase());
+        Assertions.assertEquals(firstName.toLowerCase(), HomePage.loggedUserName().toLowerCase());
     }
 
     @Test
@@ -38,13 +38,13 @@ public class LoginLogoutTests extends BaseTest {
         registrationPage.clickSignUpButton();
         homePage.clickLogout();
 
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail(email);
         loginPage.inputPassword(password);
         loginPage.clickLogIn();
 
         //checks if newly registered user is logged in
-       Assertions.assertEquals(firstName.toLowerCase(), HomePage.logedUserName().toLowerCase());
+       Assertions.assertEquals(firstName.toLowerCase(), HomePage.loggedUserName().toLowerCase());
     }
 
     @Test
@@ -59,7 +59,7 @@ public class LoginLogoutTests extends BaseTest {
         registrationPage.clickSignUpButton();
         homePage.clickLogout();
 
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail("abc" + email);
         loginPage.inputPassword(password);
         loginPage.clickLogIn();
@@ -70,7 +70,7 @@ public class LoginLogoutTests extends BaseTest {
 
     @Test
     public void emptyEmailFieldOnLogin(){
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail("");
         loginPage.inputPassword(password);
         loginPage.clickLogIn();
@@ -81,7 +81,7 @@ public class LoginLogoutTests extends BaseTest {
 
     @Test
     public void emptyPasswordFieldOnLogin(){
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail(email);
         loginPage.inputPassword("");
         loginPage.clickLogIn();
@@ -102,7 +102,7 @@ public class LoginLogoutTests extends BaseTest {
         registrationPage.clickSignUpButton();
         homePage.clickLogout();
 
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail("abc" + email);
         loginPage.inputPassword("123" + password);
         loginPage.clickLogIn();
@@ -123,7 +123,7 @@ public class LoginLogoutTests extends BaseTest {
         registrationPage.clickSignUpButton();
         homePage.clickLogout();
 
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail(email);
         loginPage.inputPassword(password);
         loginPage.clickLogIn();
@@ -145,7 +145,7 @@ public class LoginLogoutTests extends BaseTest {
         registrationPage.clickSignUpButton();
         homePage.clickLogout();
 
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail(email);
         loginPage.inputPassword(password);
         loginPage.clickLogIn();
@@ -158,9 +158,9 @@ public class LoginLogoutTests extends BaseTest {
 
     @Test
     public void adminLogin(){
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail("admin@mail.com");
-        loginPage.inputPassword("abc");
+        loginPage.inputPassword("123456");
         loginPage.clickLogIn();
         homePage.clickUserProfile();
 
@@ -170,9 +170,9 @@ public class LoginLogoutTests extends BaseTest {
 
     @Test
     public void adminLogout(){
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail("admin@mail.com");
-        loginPage.inputPassword("abc");
+        loginPage.inputPassword("123456");
         loginPage.clickLogIn();
         homePage.clickUserProfile();
         accountPage.clickLogout();
@@ -183,7 +183,7 @@ public class LoginLogoutTests extends BaseTest {
 
     @Test
     public void invalidEmailAdminLogin(){
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail("admin@gmail.com");
         loginPage.inputPassword("123456");
         loginPage.clickLogIn();
@@ -194,7 +194,7 @@ public class LoginLogoutTests extends BaseTest {
 
     @Test
     public void invalidPasswordAdminLogin(){
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail("admin@mail.com");
         loginPage.inputPassword("abcdefg");
         loginPage.clickLogIn();
@@ -205,7 +205,7 @@ public class LoginLogoutTests extends BaseTest {
 
     @Test
     public void invalidEmailAndInvalidPasswordAdminLogin(){
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail("admin@gmail.com");
         loginPage.inputPassword("abcdefg");
         loginPage.clickLogIn();
@@ -216,7 +216,7 @@ public class LoginLogoutTests extends BaseTest {
 
     @Test
     public void adminInputsOnlyValidEmail(){
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail("admin@mail.com");
         loginPage.inputPassword("");
         loginPage.clickLogIn();
@@ -227,7 +227,7 @@ public class LoginLogoutTests extends BaseTest {
 
     @Test
     public void adminInputsOnlyValidPassword(){
-        homePage.clickLogin();
+        homePage.clickLoginHomePage();
         loginPage.inputEmail("");
         loginPage.inputPassword("123456");
         loginPage.clickLogIn();
