@@ -157,13 +157,13 @@ public class LoginLogoutTests extends BaseTest {
     }
 
     @Test
-    public void adminLogin(){
+    public void adminLogin() throws InterruptedException {
         homePage.clickLogin();
         loginPage.inputEmail("admin@mail.com");
         loginPage.inputPassword("abc");
         loginPage.clickLogIn();
-        homePage.clickUserProfile();
 
+        homePage.clickUserProfile();
         //checks if user logged as administrator can see distinct to administrator button
         Assertions.assertTrue(accountPage.isCategoriesButtonDisplayed());
     }

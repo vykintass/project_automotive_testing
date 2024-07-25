@@ -24,6 +24,7 @@ public class HomePage extends BasePage{
     @FindBy (css = "#profile")
     private static WebElement logedUserLinkToProfile;
 
+
     public void clickLoginHomePage() {
         clickLoginHomePage.click();
     }
