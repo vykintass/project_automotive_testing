@@ -16,7 +16,7 @@ public class AddCategoryAsAdministrator extends BaseTest{
     public void addNewCategory(){
 
         homePage.clickLogin();
-        loginPage.inputEmail("batonas@gmail.com");
+        loginPage.inputEmail("admin@mail.com");
         loginPage.inputPassword("abc");
         loginPage.clickLogIn();
 
@@ -47,7 +47,7 @@ public class AddCategoryAsAdministrator extends BaseTest{
     public void addTheSameCategory(){
 
         homePage.clickLogin();
-        loginPage.inputEmail("batonas@gmail.com");
+        loginPage.inputEmail("admin@mail.com");
         loginPage.inputPassword("abc");
         loginPage.clickLogIn();
         //Wait to make profile button clickable
@@ -93,7 +93,7 @@ public class AddCategoryAsAdministrator extends BaseTest{
     public void deleteCategory(){
 
         homePage.clickLogin();
-        loginPage.inputEmail("batonas@gmail.com");
+        loginPage.inputEmail("admin@mail.com");
         loginPage.inputPassword("abc");
         loginPage.clickLogIn();
         //Wait to make profile button clickable
@@ -127,7 +127,7 @@ public class AddCategoryAsAdministrator extends BaseTest{
     public void pressCancelWhenDeletingCategory(){
 
         homePage.clickLogin();
-        loginPage.inputEmail("batonas@gmail.com");
+        loginPage.inputEmail("admin@mail.com");
         loginPage.inputPassword("abc");
         loginPage.clickLogIn();
         //Wait to make profile button clickable

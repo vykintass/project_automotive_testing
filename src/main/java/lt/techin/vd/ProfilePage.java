@@ -10,7 +10,7 @@ public class ProfilePage extends BasePage{
     }
     @FindBy (css= ".css-hyum1k-MuiToolbar-root [href='\\/profile']")
     private WebElement clickProfile;
-    @FindBy (css = "a:nth-of-type(2) > button")
+    @FindBy (css = "button#buttonprofrec")
     private WebElement clickAddRecipe;
     @FindBy(css = ".MuiButton-colorNeutral.MuiButton-root.MuiButton-sizeMd.MuiButton-variantOutlined.css-s62xdh-JoyButton-root")
     private WebElement clickEditRecipe;

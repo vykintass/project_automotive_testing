@@ -23,7 +23,7 @@ public class RecipePage extends BasePage {
     private WebElement inputFirstStep;
     @FindBy(id = "image")
     private WebElement inputImage;
-    @FindBy(css = "[class] [tabindex='0']:nth-child(8)")
+    @FindBy(css = "button#buttonrecipe")
     private WebElement clickAddRecipe;
     @FindBy(css = "#mui-component-select-category")
     private WebElement clickCategoriesDropdownList;
