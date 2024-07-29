@@ -57,31 +57,30 @@ public class RegistrationTest extends BaseTest{
         Assertions.assertEquals("First Name must be less than 100 characters",registrationPage.getfirstNameMessage(), "registration was sccessful");
     }
 
-<<<<<<< HEAD
-//    @Test
-//    public void registrationWithInvalidFirstNameTest(){
-//
-//        homePage.clickSignUpHomePage();
-//        registrationPage.inputFirstName("@./'[]");
-//        registrationPage.inputLastName(lastName);
-//        registrationPage.inputEmail(email);
-//        registrationPage.inputPassword(password);
-//        registrationPage.inputRepeatPassword(password);
-//        registrationPage.clickSignUpButton();
-//        Assertions.assertEquals("Please enter valid name format",registrationPage.getfirstNameMessage(), "registration was sccessful");
-//    }
-//    @Test
-//    public void registrationWithInvalidLastNameTest(){
-//
-//        homePage.clickSignUpHomePage();
-//        registrationPage.inputFirstName(firstName);
-//        registrationPage.inputLastName("@./'[]");
-//        registrationPage.inputEmail(email);
-//        registrationPage.inputPassword(password);
-//        registrationPage.inputRepeatPassword(password);
-//        registrationPage.clickSignUpButton();
-//        Assertions.assertEquals("Please enter valid name format",registrationPage.getLastNameMessage(), "registration was sccessful");
-//    }
+    @Test
+    public void registrationWithInvalidFirstNameTest(){
+
+        homePage.clickSignUpHomePage();
+        registrationPage.inputFirstName("@./'[]");
+        registrationPage.inputLastName(lastName);
+        registrationPage.inputEmail(email);
+        registrationPage.inputPassword(password);
+        registrationPage.inputRepeatPassword(password);
+        registrationPage.clickSignUpButton();
+        Assertions.assertEquals("Please enter valid name format",registrationPage.getfirstNameMessage(), "registration was sccessful");
+    }
+    @Test
+    public void registrationWithInvalidLastNameTest(){
+
+        homePage.clickSignUpHomePage();
+        registrationPage.inputFirstName(firstName);
+        registrationPage.inputLastName("@./'[]");
+        registrationPage.inputEmail(email);
+        registrationPage.inputPassword(password);
+        registrationPage.inputRepeatPassword(password);
+        registrationPage.clickSignUpButton();
+        Assertions.assertEquals("Please enter valid name format",registrationPage.getLastNameMessage(), "registration was sccessful");
+    }
 
 //    @Test
 //    public void registrationWithInvalidFirstNameTest(){
@@ -107,8 +106,7 @@ public class RegistrationTest extends BaseTest{
 //        registrationPage.clickSignUpButton();
 //        Assertions.assertEquals("Please enter valid name format",registrationPage.getLastNameMessage(), "registration was sccessful");
 //    }
-=======
->>>>>>> 3c146cb68a00f4ab11f25052fe99466e6379b2b5
+
 
     @Test
     public void registrationWithTooLongLastNameTest(){

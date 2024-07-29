@@ -28,11 +28,12 @@ public class BaseTest {
     @BeforeEach
     void setup(){
 
-        options = new ChromeOptions();
-        options.addArguments("--headless=new", "--disable-gpu");
-        driver = new ChromeDriver(options);
+//        options = new ChromeOptions();
+//        options.addArguments("--headless=new", "--disable-gpu");
+//        driver = new ChromeDriver(options);
 
-//        driver = new ChromeDriver();
+        driver = new ChromeDriver();
+
         homePage = new HomePage(driver);
         registrationPage = new RegistrationPage(driver);
         loginPage = new LoginPage(driver);
