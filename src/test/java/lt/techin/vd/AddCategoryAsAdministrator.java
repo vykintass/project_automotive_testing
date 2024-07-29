@@ -17,11 +17,7 @@ public class AddCategoryAsAdministrator extends BaseTest{
 
         homePage.clickLogin();
         loginPage.inputEmail("admin@mail.com");
-<<<<<<< HEAD
-        loginPage.inputPassword("123456");
-=======
         loginPage.inputPassword("abc");
->>>>>>> 3c146cb68a00f4ab11f25052fe99466e6379b2b5
         loginPage.clickLogIn();
 
         synchronized (monitor) {
@@ -52,11 +48,7 @@ public class AddCategoryAsAdministrator extends BaseTest{
 
         homePage.clickLogin();
         loginPage.inputEmail("admin@mail.com");
-<<<<<<< HEAD
-        loginPage.inputPassword("123456");
-=======
         loginPage.inputPassword("abc");
->>>>>>> 3c146cb68a00f4ab11f25052fe99466e6379b2b5
         loginPage.clickLogIn();
         //Wait to make profile button clickable
 
@@ -102,11 +94,7 @@ public class AddCategoryAsAdministrator extends BaseTest{
 
         homePage.clickLogin();
         loginPage.inputEmail("admin@mail.com");
-<<<<<<< HEAD
-        loginPage.inputPassword("123456");
-=======
         loginPage.inputPassword("abc");
->>>>>>> 3c146cb68a00f4ab11f25052fe99466e6379b2b5
         loginPage.clickLogIn();
         //Wait to make profile button clickable
 
@@ -140,11 +128,7 @@ public class AddCategoryAsAdministrator extends BaseTest{
 
         homePage.clickLogin();
         loginPage.inputEmail("admin@mail.com");
-<<<<<<< HEAD
-        loginPage.inputPassword("123456");
-=======
         loginPage.inputPassword("abc");
->>>>>>> 3c146cb68a00f4ab11f25052fe99466e6379b2b5
         loginPage.clickLogIn();
         //Wait to make profile button clickable
 

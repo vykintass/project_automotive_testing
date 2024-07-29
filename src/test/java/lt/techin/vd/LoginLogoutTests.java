@@ -157,7 +157,7 @@ public class LoginLogoutTests extends BaseTest {
     }
 
     @Test
-    public void adminLogin(){
+    public void adminLogin() throws InterruptedException {
         homePage.clickLogin();
         loginPage.inputEmail("admin@mail.com");
         loginPage.inputPassword("123456");

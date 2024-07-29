@@ -17,12 +17,14 @@ public class HomePage extends BasePage{
     private WebElement inputName;
     @FindBy (css = ".MuiButtonBase-root:nth-child(5)")
     private WebElement checkWelcomeMessage;
-    @FindBy (css ="button#buttonlogin" )
+    @FindBy (css ="#login" )
+
     private WebElement clickLogin;
     @FindBy (css = "button#logout")
     private WebElement logoutButton;
     @FindBy (css = "button#profile")
     private static WebElement loggedUserProfileLink;
+
 
 
     public void clickLoginHomePage() {
