@@ -49,7 +49,7 @@ jobs:
 
       - name: Wait for backend to be ready
         run: |
-          bash -c '
+          bash -c
           counter = 0
           until curl --silent --fail localhost:3001; do
             echo "Waiting for backend to be ready..."
