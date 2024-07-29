@@ -17,7 +17,7 @@ public class AccountPage extends BasePage {
     private WebElement clickLogout;
     @FindBy(id = "profile")
     private WebElement clickProfile;
-    @FindBy (css = "a#link > .bg-blue-500.px-4.py-2.rounded.text-white.w-full")
+    @FindBy (css = "#link button")
     private WebElement addCategorieButton;
 
     @FindBy(css = "button:nth-of-type(3) > a")

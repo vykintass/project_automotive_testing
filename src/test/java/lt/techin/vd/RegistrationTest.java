@@ -187,7 +187,7 @@ public class RegistrationTest extends BaseTest{
         registrationPage.inputPassword("Alexandriannaelizabethvictoriaameliaangelinajeniferrosemariechristinaophiliarosalineclarabellavendela");
         registrationPage.inputRepeatPassword("Alexandriannaelizabethvictoriaameliaangelinajeniferrosemariechristinaophiliarosalineclarabellavendela");
         registrationPage.clickSignUpButton();
-        Assertions.assertEquals("Please confirm your password",registrationPage.getPasswordMessage(), "registration was sccessful");
+        Assertions.assertEquals("Password must be at most 20 characters long",registrationPage.getPasswordMessage(), "registration was sccessful");
     }
     @Test
     public void registrationWithTooShortPasswordTest(){
@@ -199,7 +199,7 @@ public class RegistrationTest extends BaseTest{
         registrationPage.inputPassword("Aa1.");
         registrationPage.inputRepeatPassword("Aa1.");
         registrationPage.clickSignUpButton();
-        Assertions.assertEquals("Please confirm your password",registrationPage.getPasswordMessage(), "registration was sccessful");
+        Assertions.assertEquals("Password must be at least 8 characters long",registrationPage.getPasswordMessage(), "registration was sccessful");
     }
     @Test
     public void registrationWithIncorrectPasswordFormTest(){
@@ -208,10 +208,10 @@ public class RegistrationTest extends BaseTest{
         registrationPage.inputFirstName(firstName);
         registrationPage.inputLastName(lastName);
         registrationPage.inputEmail(email);
-        registrationPage.inputPassword("batas");
-        registrationPage.inputRepeatPassword("batas");
+        registrationPage.inputPassword("batasass");
+        registrationPage.inputRepeatPassword("batasass");
         registrationPage.clickSignUpButton();
-        Assertions.assertEquals("Please confirm your password",registrationPage.getPasswordMessage(), "registration was sccessful");
+        Assertions.assertEquals("Password must include at least one uppercase letter, one lowercase letter, and one symbol",registrationPage.getPasswordMessage(), "registration was sccessful");
     }
     @Test
     public void registrationWithEmptyRepeatPasswordTest(){
