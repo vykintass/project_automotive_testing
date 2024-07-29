@@ -57,6 +57,10 @@ public class RegistrationTest extends BaseTest{
         Assertions.assertEquals("First Name must be less than 100 characters",registrationPage.getfirstNameMessage(), "registration was sccessful");
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 //    @Test
 //    public void registrationWithInvalidFirstNameTest(){
 //

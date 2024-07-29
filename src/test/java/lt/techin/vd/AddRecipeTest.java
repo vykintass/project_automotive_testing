@@ -1096,7 +1096,12 @@ public class AddRecipeTest extends BaseTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(toastSelector));
         String toast = toastMessage.getText();
+<<<<<<< HEAD
         Assertions.assertEquals("Recipe updated successfully",toast, "Fail");        Assertions.assertEquals("lebanese", recipePage.getUpdatedCardCusine(), "Fail");
+=======
+        Assertions.assertEquals("Recipe updated successfully",toast, "Fail");
+        Assertions.assertEquals("lebanese", recipePage.getUpdatedCardCusine(), "Fail");
+>>>>>>> main
     }
     //TC003
     @Test
