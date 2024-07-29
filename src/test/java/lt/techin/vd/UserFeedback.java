@@ -130,6 +130,79 @@ public class UserFeedback extends BaseTest {
 
         Assertions.assertEquals(recipe.ErrorMessageDisplayed(), "Comment cannot exceed 500 characters");
     }
+    @Test
+    public void likeOwnRecipe(){
+        //create new user
+        homePage.clickSignUpHomePage();
+        registrationPage.inputFirstName(firstName);
+        registrationPage.inputLastName(lastName);
+        registrationPage.inputEmail(email);
+        registrationPage.inputPassword(password);
+        registrationPage.inputRepeatPassword(password);
+        registrationPage.clickSignUpButton();
+
+        accountPage.clickProfile();
+
+        profilePage.clickAddRecipe();
+
+        //adds new recipe if there's no recipes in "CATEGORY"
+        recipePage.inputTitle(recipeTitle);
+        recipePage.inputAmount(amount);
+        recipePage.inputIngredient(ingredient);
+        recipePage.inputStep(step);
+
+        //select from dropdown menu
+        recipePage.setClickCategoriesDropdownList();
+        recipePage.setClickCategory();
+        recipePage.setClickCuisineDropdownList();
+        recipePage.setClickCuisine();
+        recipePage.inputImageUrl(RecipeData.getUrl());
+        recipePage.clickAddRecipeButton();
+
+        accountPage.clickCategory();
+        categoryPage.clickViewRecipe();
+
+       recipe.clickLikeButton();
+
+        Assertions.assertEquals(recipe.checkLikeButton(), "ThumbUpIcon");
+    }
+    @Test
+    public void checkTheCreatorOfRecipe(){
+        //create new user
+        homePage.clickSignUpHomePage();
+        registrationPage.inputFirstName(firstName);
+        registrationPage.inputLastName(lastName);
+        registrationPage.inputEmail(email);
+        registrationPage.inputPassword(password);
+        registrationPage.inputRepeatPassword(password);
+        registrationPage.clickSignUpButton();
+
+        accountPage.clickProfile();
+
+        profilePage.clickAddRecipe();
+
+        //adds new recipe if there's no recipes in "CATEGORY"
+        recipePage.inputTitle(recipeTitle);
+        recipePage.inputAmount(amount);
+        recipePage.inputIngredient(ingredient);
+        recipePage.inputStep(step);
+
+        //select from dropdown menu
+        recipePage.setClickCategoriesDropdownList();
+        recipePage.setClickCategory();
+        recipePage.setClickCuisineDropdownList();
+        recipePage.setClickCuisine();
+        recipePage.inputImageUrl(RecipeData.getUrl());
+        recipePage.clickAddRecipeButton();
+
+        accountPage.clickCategory();
+        categoryPage.clickViewRecipe();
+
+        recipe.clickLikeButton();
+        recipe.clickCreatorButton();
+
+        Assertions.assertTrue(recipe.checkCreatorName(), "Fail");
+    }
 
 
 

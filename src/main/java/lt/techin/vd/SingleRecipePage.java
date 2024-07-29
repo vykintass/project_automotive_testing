@@ -27,7 +27,14 @@ public class SingleRecipePage extends BasePage{
 
     @FindBy (css = ".Mui-error.MuiFormHelperText-contained.MuiFormHelperText-root.MuiFormHelperText-sizeMedium.css-1wc848c-MuiFormHelperText-root")
     private WebElement emptyCommentMessage;
-
+    @FindBy(css="[class='MuiCardContent-root css-46bh2p-MuiCardContent-root'] button")
+    private WebElement clickLikeButton;
+    @FindBy(css="[class='MuiCardContent-root css-46bh2p-MuiCardContent-root'] button [focusable]")
+    private WebElement checkLikeButton;
+    @FindBy(css= "[href='\\/profile\\/1']")
+    private WebElement clickCreatorButton;
+    @FindBy(css = ".MuiTypography-gutterBottom.MuiTypography-h3.MuiTypography-root.css-1ru1jy8-MuiTypography-root")
+    private WebElement checkCreatorName;
     public String ErrorMessageDisplayed(){
        return emptyCommentMessage.getText();
     }
@@ -51,6 +58,16 @@ public class SingleRecipePage extends BasePage{
     public void clickFiveStars(){
         fiveStars.click();
     }
-
-
+    public void clickLikeButton(){
+        clickLikeButton.click();
+    }
+    public String checkLikeButton(){
+       return checkLikeButton.getAttribute("data-testid");
+    }
+    public void clickCreatorButton(){
+        clickCreatorButton.click();
+    }
+    public boolean checkCreatorName(){
+    return    checkCreatorName.isDisplayed();
+    }
 }
