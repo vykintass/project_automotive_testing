@@ -58,6 +58,7 @@ public class RegistrationTest extends BaseTest{
     }
 
 
+
     @Test
     public void registrationWithTooLongLastNameTest(){
 

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
@@ -22,12 +23,16 @@ public class BaseTest {
     protected CuisinesPage cuisinesPage;
     protected SingleRecipePage recipe;
     protected WebDriverWait wait;
+    protected ChromeOptions options;
 
     @BeforeEach
     void setup(){
+
+//        options = new ChromeOptions();
+//        options.addArguments("--headless=new", "--disable-gpu");
+//        driver = new ChromeDriver(options);
+
         driver = new ChromeDriver();
-
-
 
         homePage = new HomePage(driver);
         registrationPage = new RegistrationPage(driver);
@@ -40,8 +45,6 @@ public class BaseTest {
         recipe = new SingleRecipePage(driver);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Proper initialization
-
         wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Proper initialization
 
         driver.get("http://localhost:5173/");

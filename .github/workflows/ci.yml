@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: romualdc/postgres:13
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+        env:
+          POSTGRES_DB: recipe
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: admin
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Log in to Docker Hub
+        run: echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+
+      - name: Pull and run backend container
+        run: |
+          docker pull romualdc/recipe_website-backend:latest
+          docker run -d --name backend --network host romualdc/recipe_website-backend:latest
+
+      - name: Pull and run frontend container
+        run: |
+          docker pull romualdc/recipe_website-frontend:latest
+          docker run -d --name frontend --network host romualdc/recipe_website-frontend:latest
+
+      - name: Wait for backend to be ready
+        run: |
+          until curl --silent --fail localhost:3001; do
+            echo "Waiting for backend to be ready..."
+            sleep 5
+          done
+
+      - name: Run tests
+        run: |
+          # Add your test commands here
+          # Example: curl http://localhost:3001/api/health

@@ -9,20 +9,22 @@ public class HomePage extends BasePage{
     public HomePage(WebDriver driver) {
         super(driver);
     }
-    @FindBy(css="#login")
+    @FindBy(css="button#login")
     private WebElement clickLoginHomePage;
-    @FindBy(css="#signup")
+    @FindBy(css="button#signup")
     private WebElement clickSignUpHomePage;
     @FindBy(css = "#name")
     private WebElement inputName;
     @FindBy (css = ".MuiButtonBase-root:nth-child(5)")
     private WebElement checkWelcomeMessage;
     @FindBy (css ="#login" )
+
     private WebElement clickLogin;
     @FindBy (css = "button#logout")
     private WebElement logoutButton;
-    @FindBy (css = "#profile")
-    private static WebElement logedUserLinkToProfile;
+    @FindBy (css = "button#profile")
+    private static WebElement loggedUserProfileLink;
+
 
 
     public void clickLoginHomePage() {
@@ -52,15 +54,15 @@ public class HomePage extends BasePage{
     }
 
     public void clickUserProfile(){
-        logedUserLinkToProfile.click();
+        loggedUserProfileLink.click();
     }
 
     public String checkWelcomeMessage(){
         return checkWelcomeMessage.getText();
     }
 
-    public static String logedUserName(){
-        return logedUserLinkToProfile.getText().split("\\(")[1].replace(")","");
+    public static String loggedUserName(){
+        return loggedUserProfileLink.getText().split("\\(")[1].replace(")","");
     }
 
 }
