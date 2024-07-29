@@ -1,5 +1,6 @@
 package lt.techin.vd;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,6 +28,9 @@ public class CategoryPage extends BasePage {
     @FindBy(id = "buttonnewcat")
     private WebElement clickSubmitCategory;
 
+    public By getToast(){
+        return By.cssSelector("div:nth-of-type(4) > .go4109123758 > .go2072408551");
+    }
     public String getWelcomeText() {
         return getText.getText();
     }
@@ -57,6 +61,7 @@ public class CategoryPage extends BasePage {
     public void deleteCategoryField () {
             inputCategory.clear();
         }
+
 }
 
 

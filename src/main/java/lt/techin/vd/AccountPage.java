@@ -17,7 +17,7 @@ public class AccountPage extends BasePage {
     private WebElement clickLogout;
     @FindBy(css = "#profile")
     private WebElement clickProfile;
-    @FindBy (css = "#root > div.flex.justify-around > a:nth-child(1)")
+    @FindBy (css = "#link button")
     private WebElement addCategorieButton;
 
     @FindBy(css = "button:nth-of-type(3) > a")
